@@ -19,58 +19,26 @@ const brand = {
   accentGreen: '#22C55E',
 }
 
-// ─── Reversed R SVG Logo Mark ────────────────────────────────────────────────
-const TrovarMark = ({ size = 32, className }: { size?: number; className?: string }) => (
-  <svg
+// ─── Logo components using real brand assets ──────────────────────────────────
+const TrovarMark = ({ size = 32, className, dark = false }: { size?: number; className?: string; dark?: boolean }) => (
+  // eslint-disable-next-line @next/next/no-img-element
+  <img
+    src={dark ? '/logo-mark-black.svg' : '/logo-mark.svg'}
+    alt="Trovar mark"
     width={size}
     height={size}
-    viewBox="0 0 40 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
     className={className}
-  >
-    {/* Reversed R — mirrored horizontally */}
-    <g transform="scale(-1,1) translate(-40,0)">
-      <line x1="10" y1="7" x2="10" y2="33" stroke={brand.textPrimary} strokeWidth="3.5" strokeLinecap="round"/>
-      <path d="M10,7 Q28,7 28,17 Q28,25 10,25" stroke={brand.textPrimary} strokeWidth="3.5" strokeLinecap="round" fill="none"/>
-      <line x1="19" y1="25" x2="30" y2="33" stroke={brand.textPrimary} strokeWidth="3.5" strokeLinecap="round"/>
-    </g>
-  </svg>
+  />
 )
 
-// ─── TROVARЯ Wordmark ──────────────────────────────────────────────────────
-const TrovarWordmark = ({ className, light = false }: { className?: string; light?: boolean }) => {
-  const color = light ? brand.textPrimary : brand.textPrimary
-  return (
-    <svg
-      viewBox="0 0 260 44"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn('h-7 w-auto', className)}
-    >
-      <g stroke={color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none">
-        {/* T */}
-        <line x1="2" y1="6" x2="26" y2="6"/>
-        <line x1="14" y1="6" x2="14" y2="38"/>
-        {/* R */}
-        <line x1="34" y1="6" x2="34" y2="38"/>
-        <path d="M34,6 Q52,6 52,18 Q52,28 34,28"/>
-        <line x1="43" y1="28" x2="55" y2="38"/>
-        {/* O */}
-        <rect x="62" y="4" width="26" height="34" rx="13" fill="none"/>
-        {/* V */}
-        <polyline points="96,6 108,38 120,6"/>
-        {/* A */}
-        <polyline points="130,38 143,6 156,38"/>
-        <line x1="135" y1="26" x2="151" y2="26"/>
-        {/* Я — reversed R */}
-        <line x1="198" y1="6" x2="198" y2="38"/>
-        <path d="M198,6 Q180,6 180,18 Q180,28 198,28"/>
-        <line x1="189" y1="28" x2="177" y2="38"/>
-      </g>
-    </svg>
-  )
-}
+const TrovarWordmark = ({ className }: { className?: string; light?: boolean }) => (
+  // eslint-disable-next-line @next/next/no-img-element
+  <img
+    src="/logo-wordmark.svg"
+    alt="Trovar"
+    className={cn('h-7 w-auto', className)}
+  />
+)
 
 // ─── Animation Helpers ───────────────────────────────────────────────────────
 const transitionVariants: { container: Variants; item: Variants } = {
@@ -141,7 +109,7 @@ function Header() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F5F5F7]">
-              <TrovarMark size={22} className="[&_line]:stroke-[#000D0F] [&_path]:stroke-[#000D0F]" />
+              <TrovarMark size={22} dark />
             </div>
             <TrovarWordmark />
           </a>
@@ -291,7 +259,7 @@ function Hero() {
                 <div className="h-3 w-3 rounded-full bg-[#27C840]" />
                 <div className="ml-4 flex items-center gap-2">
                   <div className="h-4 w-4 rounded bg-[#F5F5F7] flex items-center justify-center">
-                    <TrovarMark size={12} className="[&_line]:stroke-[#000D0F] [&_path]:stroke-[#000D0F]" />
+                    <TrovarMark size={12} dark />
                   </div>
                   <span className="text-xs text-[#4A4D4F]">trovar.app — Carter Accounting</span>
                 </div>
@@ -704,7 +672,7 @@ function WaitlistCTA() {
         <FadeIn>
           <div className="mb-2 flex justify-center">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F5F7]">
-              <TrovarMark size={28} className="[&_line]:stroke-[#000D0F] [&_path]:stroke-[#000D0F]" />
+              <TrovarMark size={28} dark />
             </div>
           </div>
           <h2 className="mt-6 text-3xl font-light text-[#F5F5F7] md:text-5xl">
@@ -755,7 +723,7 @@ function Footer() {
           <div>
             <a href="/" className="flex items-center gap-3">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#F5F5F7]">
-                <TrovarMark size={18} className="[&_line]:stroke-[#000D0F] [&_path]:stroke-[#000D0F]" />
+                <TrovarMark size={18} dark />
               </div>
               <TrovarWordmark />
             </a>

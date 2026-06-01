@@ -1,0 +1,57 @@
+# Trovar
+
+> Smart receipt collection for modern accountants in New Zealand and Australia.
+
+Trovar is a SaaS platform that automatically collects invoices and receipts from digital platforms — Meta Ads, Google Ads, Adobe Creative Cloud, Shopify, Microsoft 365, AWS and others — using direct billing API connections. It generates IRD-compliant expense records and pushes them to Xero automatically. Built specifically for NZ and AU accounting firms managing digital-first clients.
+
+## What Trovar does
+
+- Connects to platform billing APIs via OAuth — no credential scraping, no stored passwords
+- Automatically collects invoices from Meta, Google, Adobe, Shopify and other platforms
+- Generates NZ IRD-compliant taxable supply information records for every transaction
+- Calculates GST correctly including for overseas merchants (remote services rules)
+- Pushes reconciled records to Xero automatically
+- Provides a multi-client dashboard for accounting firms to manage all clients in one place
+
+## Who it is for
+
+- NZ and AU accounting firms managing digital-first clients
+- Bookkeepers whose clients spend on Meta Ads, Google Ads, SaaS platforms
+- Accounting practices who use Xero and need automated receipt collection
+- Firms frustrated with Hubdoc's credential scraping breaking on 2FA
+
+## How it differs from competitors
+
+- **vs Hubdoc**: Hubdoc stores passwords and scrapes portals — breaks when platforms add 2FA. Trovar uses OAuth API connections that are immune to 2FA. Hubdoc has recorded nearly 2,000 outages. Trovar connects directly to billing APIs.
+- **vs Tailride**: Tailride monitors email inboxes only. Trovar goes directly to the billing API source, capturing invoices even when merchants don't send email receipts.
+- **vs Dext**: Dext requires manual document capture. Trovar is proactive — it fetches invoices automatically without any human action.
+
+## IRD compliance
+
+Trovar generates taxable supply information records that meet NZ IRD requirements under the recent rule changes. Records contain: supplier name, date of supply, amount, GST component, description of services. Bank transaction data is used as supporting evidence. GST is calculated correctly for both domestic NZ suppliers and overseas merchants under NZ remote services rules.
+
+## Pricing
+
+- Starter: $29 NZD per client account per month (up to 10 clients)
+- Practice: $22 NZD per client account per month (10–50 clients)
+- Enterprise: Custom pricing for 50+ clients
+
+## Platforms supported
+
+Meta Ads, Google Ads, Adobe Creative Cloud, Shopify, Microsoft 365, AWS, Slack, Zoom, and more being added regularly.
+
+## Accounting integrations
+
+Xero (primary). MYOB and QuickBooks planned.
+
+## Location
+
+Built in New Zealand. Serving NZ and AU accounting firms.
+
+## Contact
+
+matt@trovar.co.nz
+
+## Website
+
+https://trovar.co.nz
