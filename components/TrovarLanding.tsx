@@ -128,16 +128,16 @@ function Header() {
           {/* CTA */}
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="#waitlist"
+              href="https://app.trovar.co.nz/login"
               className="rounded-lg border border-[#2E3032] px-4 py-2 text-sm text-[#E6E6E8] transition hover:border-[#3A3B3D] hover:bg-[#1F2122]"
             >
               Sign in
             </a>
             <a
-              href="#waitlist"
-              className="rounded-lg bg-[#F5F5F7] px-4 py-2 text-sm font-medium text-[#000D0F] transition hover:bg-[#E6E6E8]"
+              href="/get-started"
+              className="rounded-lg bg-[#7DD3FC] px-4 py-2 text-sm font-medium text-[#04181C] transition hover:bg-[#9ADEFC]"
             >
-              Request access
+              Get started
             </a>
           </div>
 
@@ -160,11 +160,11 @@ function Header() {
               ))}
             </ul>
             <div className="mt-6 flex flex-col gap-3">
-              <a href="#waitlist" className="rounded-lg border border-[#2E3032] px-4 py-2.5 text-center text-sm text-[#E6E6E8]">
+              <a href="https://app.trovar.co.nz/login" className="rounded-lg border border-[#2E3032] px-4 py-2.5 text-center text-sm text-[#E6E6E8]">
                 Sign in
               </a>
-              <a href="#waitlist" className="rounded-lg bg-[#F5F5F7] px-4 py-2.5 text-center text-sm font-medium text-[#000D0F]">
-                Request access
+              <a href="/get-started" className="rounded-lg bg-[#7DD3FC] px-4 py-2.5 text-center text-sm font-medium text-[#04181C]">
+                Get started
               </a>
             </div>
           </div>
@@ -176,13 +176,6 @@ function Header() {
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function Hero() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) setSubmitted(true)
-  }
 
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
@@ -218,31 +211,20 @@ function Hero() {
             Trovar connects directly to Meta, Google, Adobe and Shopify — pulling invoices automatically into Xero. No portals. No chasing. No 2FA headaches.
           </p>
 
-          {/* Email capture */}
-          <div className="mt-10 flex justify-center">
-            {submitted ? (
-              <div className="flex items-center gap-2 rounded-xl border border-[#22C55E]/30 bg-[#22C55E]/10 px-6 py-3 text-[#22C55E]">
-                <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
-                You're on the list — we'll be in touch shortly.
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@accountingfirm.co.nz"
-                  className="flex-1 rounded-xl border border-[#2E3032] bg-[#1F2122] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#4A4D4F] outline-none ring-0 transition focus:border-[#7DD3FC]/50"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="rounded-xl bg-[#F5F5F7] px-5 py-3 text-sm font-medium text-[#000D0F] transition hover:bg-[#E6E6E8]"
-                >
-                  Request access
-                </button>
-              </form>
-            )}
+          {/* CTA */}
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/get-started"
+              className="flex items-center gap-1.5 rounded-xl bg-[#7DD3FC] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#9ADEFC]"
+            >
+              Get started <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="#how"
+              className="rounded-xl border border-[#2E3032] px-6 py-3 text-sm text-[#E6E6E8] transition hover:bg-[#1F2122]"
+            >
+              See how it works
+            </a>
           </div>
           <p className="mt-3 text-xs text-[#4A4D4F]">Free during beta · No credit card required · NZ & AU only</p>
         </AnimatedGroup>
@@ -531,11 +513,11 @@ function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href="#waitlist"
+                  href="/get-started"
                   className={cn(
                     'mt-8 block rounded-xl px-4 py-2.5 text-center text-sm font-medium transition',
                     tier.highlight
-                      ? 'bg-[#F5F5F7] text-[#000D0F] hover:bg-[#E6E6E8]'
+                      ? 'bg-[#7DD3FC] text-[#04181C] hover:bg-[#9ADEFC]'
                       : 'border border-[#2E3032] text-[#E6E6E8] hover:border-[#3A3B3D] hover:bg-[#2A2B2C]'
                   )}
                 >
@@ -658,13 +640,6 @@ function FAQ() {
 
 // ─── Waitlist CTA ─────────────────────────────────────────────────────────────
 function WaitlistCTA() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email) setSubmitted(true)
-  }
 
   return (
     <section id="waitlist" className="border-t border-[#2E3032] py-20 md:py-32">
@@ -683,29 +658,12 @@ function WaitlistCTA() {
             Join NZ accounting firms who are getting early access. Free for 30 days. No credit card.
           </p>
           <div className="mt-8 flex justify-center">
-            {submitted ? (
-              <div className="flex items-center gap-2 rounded-xl border border-[#22C55E]/30 bg-[#22C55E]/10 px-6 py-3 text-[#22C55E]">
-                <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
-                You're on the list — we'll be in touch shortly.
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@accountingfirm.co.nz"
-                  className="flex-1 rounded-xl border border-[#2E3032] bg-[#1F2122] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#4A4D4F] outline-none transition focus:border-[#7DD3FC]/50"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="rounded-xl bg-[#F5F5F7] px-5 py-3 text-sm font-medium text-[#000D0F] transition hover:bg-[#E6E6E8]"
-                >
-                  Request access
-                </button>
-              </form>
-            )}
+            <a
+              href="/get-started"
+              className="flex items-center gap-1.5 rounded-xl bg-[#7DD3FC] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#9ADEFC]"
+            >
+              Get started <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
           <p className="mt-3 text-xs text-[#4A4D4F]">trovar.co.nz · NZ & AU only · Early access 2026</p>
         </FadeIn>
