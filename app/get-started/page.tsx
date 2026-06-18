@@ -85,12 +85,12 @@ export default function GetStarted() {
     <main className="min-h-screen bg-[#000D0F]">
       {/* Header */}
       <header className="border-b border-[#2E3032]">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
-          <a href="/" className="flex items-center gap-3">
+        <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-4 py-5 sm:px-6">
+          <a href="/" className="flex shrink-0 items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-wordmark.svg" alt="Trovar" className="h-6" />
+            <img src="/logo-wordmark.svg" alt="Trovar" className="h-5 w-auto" />
           </a>
-          <a href="/" className="text-sm text-[#8A8D8F] transition hover:text-[#F5F5F7]">
+          <a href="/" className="shrink-0 text-sm text-[#8A8D8F] transition hover:text-[#F5F5F7]">
             Back to site
           </a>
         </div>
