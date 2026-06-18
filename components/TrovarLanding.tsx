@@ -107,11 +107,11 @@ function Header() {
           )}
         >
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F5F5F7]">
+          <a href="/" className="flex shrink-0 items-center gap-2.5">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F5F5F7]">
               <TrovarMark size={22} dark />
             </div>
-            <TrovarWordmark />
+            <TrovarWordmark className="h-6 sm:h-7" />
           </a>
 
           {/* Desktop nav */}
@@ -142,7 +142,7 @@ function Header() {
           </div>
 
           {/* Mobile toggle */}
-          <button onClick={() => setOpen(!open)} className="lg:hidden">
+          <button onClick={() => setOpen(!open)} className="-mr-1 shrink-0 p-1 lg:hidden" aria-label="Menu">
             {open ? <X className="h-5 w-5 text-[#F5F5F7]" /> : <Menu className="h-5 w-5 text-[#F5F5F7]" />}
           </button>
         </div>
@@ -195,7 +195,7 @@ function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-4 py-1.5 text-xs text-[#8A8D8F]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
-            Now in early access for NZ & AU accounting firms
+            Built for NZ & AU accounting firms
             <ArrowRight className="h-3 w-3" />
           </div>
 
@@ -226,7 +226,7 @@ function Hero() {
               See how it works
             </a>
           </div>
-          <p className="mt-3 text-xs text-[#4A4D4F]">Free during beta · No credit card required · NZ & AU only</p>
+          <p className="mt-3 text-xs text-[#4A4D4F]">30-day free trial · No credit card required · NZ & AU only</p>
         </AnimatedGroup>
 
         {/* Dashboard screenshot mockup */}
@@ -598,7 +598,7 @@ const faqs = [
   },
   {
     q: 'Is there a free trial?',
-    a: 'We\'re currently in early access for NZ and AU accounting firms. Request access above and we\'ll onboard you free for the first 30 days.',
+    a: 'We work with NZ and AU accounting firms. Get started above and we\'ll onboard you free for the first 30 days.',
   },
 ]
 
@@ -655,7 +655,7 @@ function WaitlistCTA() {
             <span className="text-[#8A8D8F]">invoices?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-            Join NZ accounting firms who are getting early access. Free for 30 days. No credit card.
+            Join NZ accounting firms automating their receipt collection. Free for 30 days. No credit card.
           </p>
           <div className="mt-8 flex justify-center">
             <a
@@ -665,7 +665,7 @@ function WaitlistCTA() {
               Get started <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-          <p className="mt-3 text-xs text-[#4A4D4F]">trovar.co.nz · NZ & AU only · Early access 2026</p>
+          <p className="mt-3 text-xs text-[#4A4D4F]">trovar.co.nz · NZ & AU only</p>
         </FadeIn>
       </div>
     </section>

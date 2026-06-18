@@ -68,10 +68,14 @@ export default function GetStarted() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, apps }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Request failed");
+      }
       setDone(true);
-    } catch {
-      setError("Something went wrong. Please try again or email matt@trovar.co.nz.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Something went wrong";
+      setError(`${msg}. Please try again, or email us at hello@trovar.co.nz.`);
     } finally {
       setSubmitting(false);
     }
@@ -154,10 +158,7 @@ export default function GetStarted() {
                             <Check size={11} className="text-[#04181C]" strokeWidth={3} />
                           </span>
                         )}
-                        <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={`https://cdn.simpleicons.org/${app.slug}`} alt={app.name} className="h-5 w-5" />
-                        </span>
+                        <AppIcon slug={app.slug} name={app.name} />
                         <span className="text-xs font-medium text-[#F5F5F7]">{app.name}</span>
                       </button>
                     );
@@ -251,6 +252,25 @@ export default function GetStarted() {
         )}
       </div>
     </main>
+  );
+}
+
+function AppIcon({ slug, name }: { slug: string; name: string }) {
+  const [errored, setErrored] = useState(false);
+  return (
+    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white">
+      {errored ? (
+        <span className="text-sm font-bold text-[#04181C]">{name[0]}</span>
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={`https://cdn.simpleicons.org/${slug}`}
+          alt={name}
+          className="h-5 w-5"
+          onError={() => setErrored(true)}
+        />
+      )}
+    </span>
   );
 }
 
