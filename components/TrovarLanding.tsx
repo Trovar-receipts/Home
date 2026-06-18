@@ -44,11 +44,11 @@ const TrovarWordmark = ({ className }: { className?: string; light?: boolean }) 
 const transitionVariants: { container: Variants; item: Variants } = {
   container: {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.05 } },
   },
   item: {
-    hidden: { opacity: 0, filter: 'blur(8px)', y: 16 },
-    visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { type: 'spring', bounce: 0.25, duration: 1.2 } },
+    hidden: { opacity: 0, filter: 'blur(6px)', y: 12 },
+    visible: { opacity: 1, filter: 'blur(0px)', y: 0, transition: { type: 'spring', bounce: 0.2, duration: 0.55 } },
   },
 }
 
@@ -62,15 +62,15 @@ function AnimatedGroup({ children, className }: { children: React.ReactNode; cla
   )
 }
 
-function FadeIn({ children, className, delay = 0.1 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function FadeIn({ children, className, delay = 0.05 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const reduce = useReducedMotion()
   if (reduce) return <div className={className}>{children}</div>
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
+      initial={{ opacity: 0, y: 10, filter: 'blur(3px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.7 }}
+      viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+      transition={{ delay, duration: 0.4, ease: 'easeOut' }}
       className={className}
     >
       {children}
@@ -224,7 +224,7 @@ function Hero() {
         </AnimatedGroup>
 
         {/* Demo video placeholder */}
-        <FadeIn delay={0.5} className="mt-16">
+        <FadeIn delay={0.15} className="mt-16">
           <div id="demo" className="relative mx-auto max-w-4xl scroll-mt-28">
             <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#7DD3FC]/20 to-transparent" />
             <div className="relative overflow-hidden rounded-2xl border border-[#2E3032] bg-[#1F2122] shadow-2xl">
@@ -321,7 +321,7 @@ function HowItWorks() {
 
         <div className="grid gap-px md:grid-cols-3">
           {steps.map((step, i) => (
-            <FadeIn key={i} delay={0.1 + i * 0.15}>
+            <FadeIn key={i} delay={i * 0.07}>
               <div className="relative border border-[#2E3032] bg-[#000D0F] p-8 first:rounded-l-2xl last:rounded-r-2xl md:first:rounded-l-2xl md:last:rounded-r-2xl">
                 <span className="text-5xl font-light text-[#2E3032]">{step.number}</span>
                 <h3 className="mt-4 text-lg font-medium text-[#F5F5F7]">{step.title}</h3>
@@ -386,7 +386,7 @@ function Features() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f, i) => (
-            <FadeIn key={i} delay={0.05 + i * 0.08}>
+            <FadeIn key={i} delay={i * 0.05}>
               <div className="group h-full rounded-2xl border border-[#2E3032] bg-[#1F2122] p-6 transition hover:border-[#3A3B3D] hover:bg-[#2A2B2C]">
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#000D0F] border border-[#2E3032]">
@@ -465,7 +465,7 @@ function Pricing() {
 
         <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
           {tiers.map((tier, i) => (
-            <FadeIn key={i} delay={0.1 + i * 0.1}>
+            <FadeIn key={i} delay={i * 0.06}>
               <div
                 className={cn(
                   'h-full rounded-2xl border p-8 transition',
@@ -598,7 +598,7 @@ function FAQ() {
         </FadeIn>
         <div className="space-y-2">
           {faqs.map((faq, i) => (
-            <FadeIn key={i} delay={0.05 * i}>
+            <FadeIn key={i} delay={i * 0.03}>
               <div className="rounded-xl border border-[#2E3032] bg-[#1F2122] overflow-hidden">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
@@ -687,13 +687,13 @@ function Footer() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
-            <a href="/" className="flex items-center gap-3">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#F5F5F7]">
+            <a href="/" className="flex items-center gap-2.5">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#F5F5F7]">
                 <TrovarMark size={18} dark />
               </div>
-              <TrovarWordmark />
+              <TrovarWordmark className="h-5 w-auto" />
             </a>
-            <p className="mt-2 text-xs text-[#4A4D4F]">Automated supplier-invoice collection for modern accountants.</p>
+            <p className="mt-4 text-xs leading-relaxed text-[#4A4D4F]">Automated supplier-invoice collection for modern accountants.</p>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-[#4A4D4F]">
