@@ -136,7 +136,7 @@ export default function GetStarted() {
 
             {step === 1 && (
               <Section
-                title="Which apps do you need receipts from?"
+                title="Which apps do you need invoices from?"
                 subtitle="Pick everything your clients spend on. We'll prioritise connecting these first."
               >
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">

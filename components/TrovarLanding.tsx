@@ -195,7 +195,7 @@ function Hero() {
           <h1 className="text-5xl font-light leading-[1.1] tracking-tight text-[#F5F5F7] md:text-7xl">
             Stop chasing<br />
             <span className="text-[#8A8D8F]">your clients&apos;</span><br />
-            receipts.
+            invoices.
           </h1>
 
           {/* Sub */}
@@ -300,8 +300,8 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Reconciled & audit-ready',
-    description: 'Every receipt is matched, GST calculated and ready for IRD. Export any client, any period, in one click. Direct push to Xero is coming soon.',
+    title: 'Captured & audit-ready',
+    description: 'Every invoice has its supplier, date, GST and amount captured — ready to reconcile in Xero. Export any client, any period, in one click. Direct Xero push is coming soon.',
   },
 ]
 
@@ -345,7 +345,7 @@ const features = [
   {
     icon: Mail,
     title: 'Email-in & manual capture',
-    description: 'Every client gets a unique Trovar email address — forward any receipt and it files itself. Off-platform expense? Add it by hand in seconds.',
+    description: 'Every client gets a unique Trovar email address — forward any supplier invoice and it files itself. Off-platform expense? Add it by hand in seconds.',
   },
   {
     icon: Shield,
@@ -355,7 +355,7 @@ const features = [
   {
     icon: BarChart3,
     title: 'Accountant dashboard',
-    description: 'One view of every client\'s receipts — collected, pending, what needs attention. No more inbox archaeology.',
+    description: 'One view of every client\'s invoices — collected, pending, what needs attention. No more inbox archaeology.',
   },
   {
     icon: Users,
@@ -365,7 +365,7 @@ const features = [
   {
     icon: RefreshCw,
     title: 'Push to Xero',
-    description: 'Matched invoices push straight into your client\'s Xero, correctly coded with GST split.',
+    description: 'Coded invoices push straight into your client\'s Xero, with GST split.',
     soon: true,
   },
 ]
@@ -419,7 +419,7 @@ function Pricing() {
       features: [
         'Connects to all your clients\' paid subscriptions',
         'Meta, Google, Adobe, Shopify & many more',
-        'Email-in & manual receipt capture',
+        'Email-in & manual invoice capture',
         'IRD-compliant taxable supply records',
         'Practice dashboard & one-click exports',
         'Priority support from the founders',
@@ -561,15 +561,15 @@ const faqs = [
   },
   {
     q: 'Which platforms does Trovar connect to?',
-    a: 'Trovar connects to your clients\' paid subscriptions — the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. And for anything off-platform, you can forward a receipt by email or add it manually — so nothing slips through.',
+    a: 'Trovar connects to your clients\' paid subscriptions — the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. And for anything off-platform, you can forward an invoice by email or add it manually — so nothing slips through.',
   },
   {
-    q: 'Can I forward receipts by email?',
-    a: 'Yes. Every client gets a unique Trovar email address — forward any receipt (or have a supplier send straight to it) and Trovar reads it and files it automatically. You can also add receipts by hand for anything off-platform.',
+    q: 'Can I forward invoices by email?',
+    a: 'Yes. Every client gets a unique Trovar email address — forward any supplier invoice (or have a supplier send straight to it) and Trovar reads it and files it automatically. You can also add invoices by hand for anything off-platform.',
   },
   {
     q: 'Does it work with Xero?',
-    a: 'Direct push to Xero — correctly coded with GST split — is coming soon, and we\'re a Xero App Partner. Today, every receipt is captured, GST-calculated and one-click exportable into your workflow.',
+    a: 'Direct push to Xero — correctly coded with GST split — is coming soon, and we\'re a Xero App Partner. Today, every invoice is captured, GST-calculated and one-click exportable into your workflow.',
   },
   {
     q: 'Is the data IRD compliant?',
@@ -657,7 +657,7 @@ function WaitlistCTA() {
             <span className="text-[#8A8D8F]">invoices?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-            Join NZ accounting firms automating their receipt collection. First client free, then 30 days on us.
+            Join NZ accounting firms automating their invoice collection. First client free, then 30 days on us.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
@@ -693,7 +693,7 @@ function Footer() {
               </div>
               <TrovarWordmark />
             </a>
-            <p className="mt-2 text-xs text-[#4A4D4F]">Smart receipt collection for modern accountants.</p>
+            <p className="mt-2 text-xs text-[#4A4D4F]">Automated supplier-invoice collection for modern accountants.</p>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-[#4A4D4F]">
