@@ -191,14 +191,8 @@ function Hero() {
 
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <AnimatedGroup>
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-4 py-1.5 text-xs text-[#8A8D8F]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
-            Built for NZ &amp; AU accounting firms
-          </div>
-
           {/* Headline */}
-          <h1 className="mt-8 text-5xl font-light leading-[1.1] tracking-tight text-[#F5F5F7] md:text-7xl">
+          <h1 className="text-5xl font-light leading-[1.1] tracking-tight text-[#F5F5F7] md:text-7xl">
             Stop chasing<br />
             <span className="text-[#8A8D8F]">your clients&apos;</span><br />
             receipts.
@@ -633,10 +627,6 @@ function FoundersNote() {
     <section className="border-t border-[#2E3032] py-20 md:py-28">
       <div className="mx-auto max-w-2xl px-6 text-center">
         <FadeIn>
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-4 py-1.5 text-xs text-[#8A8D8F]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
-            Built &amp; supported in New Zealand
-          </div>
           <h2 className="text-2xl font-light leading-snug text-[#F5F5F7] md:text-3xl">
             You&apos;re supported by the founders, not a call centre
           </h2>
