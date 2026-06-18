@@ -638,6 +638,30 @@ function FAQ() {
   )
 }
 
+// ─── Founders note ────────────────────────────────────────────────────────────
+function FoundersNote() {
+  return (
+    <section className="border-t border-[#2E3032] py-20 md:py-28">
+      <div className="mx-auto max-w-2xl px-6 text-center">
+        <FadeIn>
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-4 py-1.5 text-xs text-[#8A8D8F]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#22C55E]" />
+            Built &amp; supported in New Zealand
+          </div>
+          <h2 className="text-2xl font-light leading-snug text-[#F5F5F7] md:text-3xl">
+            You&apos;re supported by the founders, not a call centre
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-[#8A8D8F]">
+            Trovar is built by NZ-based technical founders who genuinely care about your
+            practice&apos;s success. When you need a hand, you talk to the people who build the
+            product — and we&apos;ll make sure you&apos;re set up to win.
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+  )
+}
+
 // ─── Waitlist CTA ─────────────────────────────────────────────────────────────
 function WaitlistCTA() {
 
@@ -724,6 +748,7 @@ export default function TrovarLanding() {
         <Pricing />
         <VsHubdoc />
         <FAQ />
+        <FoundersNote />
         <WaitlistCTA />
       </main>
       <Footer />
