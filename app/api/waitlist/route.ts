@@ -44,5 +44,36 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Could not save" }, { status: 500 });
   }
 
+  // Notify on new lead (best-effort — never blocks the signup)
+  const resendKey = process.env.RESEND_API_KEY;
+  const notifyTo = process.env.NOTIFICATION_EMAIL;
+  const from = process.env.RESEND_FROM || "Trovar <hello@trovar.co.nz>";
+  if (resendKey && notifyTo) {
+    const appLabels = (row.apps as string[]).join(", ") || "—";
+    const lines = [
+      `Name: ${row.name ?? "—"}`,
+      `Email: ${row.email}`,
+      `Practice: ${row.practice_name ?? "—"}`,
+      `Phone: ${row.phone ?? "—"}`,
+      `Clients: ${row.client_band ?? "—"}`,
+      `Apps wanted: ${appLabels}`,
+      `Other apps: ${row.other_apps ?? "—"}`,
+      `Notes: ${row.notes ?? "—"}`,
+    ];
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${resendKey}`,
+      },
+      body: JSON.stringify({
+        from,
+        to: notifyTo,
+        subject: `New Trovar signup: ${row.practice_name ?? row.email}`,
+        text: lines.join("\n"),
+      }),
+    }).catch((e) => console.error("Resend notify failed:", e));
+  }
+
   return NextResponse.json({ ok: true });
 }
