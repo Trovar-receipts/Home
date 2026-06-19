@@ -220,7 +220,7 @@ function Hero() {
               See how it works
             </a>
           </div>
-          <p className="mt-3 text-xs text-[#4A4D4F]">First client free · 30-day trial · NZ &amp; AU</p>
+          <p className="mt-3 text-xs text-[#4A4D4F]">First client free, forever · NZ &amp; AU</p>
         </AnimatedGroup>
 
         {/* Demo video placeholder */}
@@ -415,7 +415,7 @@ function Pricing() {
     {
       name: 'Practice',
       price: '$29',
-      desc: 'Per client / month · first client free',
+      desc: 'Per client / month · first client free, forever',
       features: [
         'Connects to all your clients\' paid subscriptions',
         'Meta, Google, Adobe, Shopify & many more',
@@ -457,8 +457,7 @@ function Pricing() {
               <span className="text-[#8A8D8F]">Per client account.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-              One flat rate per client under management — and your first client is free. Most firms fold it
-              straight into their bookkeeping fee.
+              One flat rate per client under management — and your first client is free, forever (no card needed). Most firms fold it straight into their bookkeeping fee.
             </p>
           </div>
         </FadeIn>
@@ -577,11 +576,11 @@ const faqs = [
   },
   {
     q: 'How does pricing work for accounting firms?',
-    a: 'It\'s $29 NZD per client account per month — and your first client is free. Add a client, add a seat; remove one and it drops off. Most firms fold this into their bookkeeping fee and make a healthy margin.',
+    a: 'It\'s $29 NZD per client account per month — and your first client is free, forever, with no card required. Add more clients for $29 each whenever you\'re ready; remove one and it drops off. Most firms fold this into their bookkeeping fee and make a healthy margin.',
   },
   {
-    q: 'Is there a free trial?',
-    a: 'Yes — we onboard NZ and AU firms free for the first 30 days, and your first client is always free. Get started above and we\'ll set you up.',
+    q: 'Do I need a card to start?',
+    a: 'No card needed to start. Your first client is free forever, so you can run Trovar on a real client at no cost for as long as you like — add more for $29/month each whenever you\'re ready.',
   },
 ]
 
@@ -657,7 +656,7 @@ function WaitlistCTA() {
             <span className="text-[#8A8D8F]">invoices?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-            Join NZ accounting firms automating their invoice collection. First client free, then 30 days on us.
+            Join NZ accounting firms automating their invoice collection. Your first client is free, forever.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
