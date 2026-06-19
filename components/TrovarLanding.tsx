@@ -262,24 +262,50 @@ function Hero() {
 }
 
 // ─── Platform logos strip ────────────────────────────────────────────────────
-const platforms = ['Meta Ads', 'Google Ads', 'Adobe', 'Shopify', 'Microsoft 365', 'AWS', 'Slack', 'Stripe', 'Canva']
+const platforms: { name: string; domain: string }[] = [
+  { name: 'Meta Ads', domain: 'facebook.com' },
+  { name: 'Google Ads', domain: 'google.com' },
+  { name: 'Microsoft Ads', domain: 'about.ads.microsoft.com' },
+  { name: 'TikTok Ads', domain: 'tiktok.com' },
+  { name: 'LinkedIn Ads', domain: 'linkedin.com' },
+  { name: 'Amazon Ads', domain: 'advertising.amazon.com' },
+  { name: 'Adobe', domain: 'adobe.com' },
+  { name: 'Canva', domain: 'canva.com' },
+  { name: 'Shopify', domain: 'shopify.com' },
+  { name: 'Stripe', domain: 'stripe.com' },
+  { name: 'Klaviyo', domain: 'klaviyo.com' },
+  { name: 'Mailchimp', domain: 'mailchimp.com' },
+  { name: 'HubSpot', domain: 'hubspot.com' },
+  { name: 'Microsoft 365', domain: 'office.com' },
+  { name: 'Dropbox', domain: 'dropbox.com' },
+  { name: 'Xero', domain: 'xero.com' },
+]
 
 function PlatformStrip() {
   return (
-    <section className="border-y border-[#2E3032] py-10">
+    <section id="integrations" className="border-y border-[#2E3032] py-14 md:py-20">
       <div className="mx-auto max-w-5xl px-6">
         <FadeIn>
-          <p className="mb-8 text-center text-xs tracking-widest text-[#4A4D4F] uppercase">
-            Collects from your clients&apos; paid subscriptions
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+          <p className="mb-2 text-center text-xs tracking-widest text-[#4A4D4F] uppercase">Integrations</p>
+          <h2 className="mb-10 text-center text-2xl font-light text-[#F5F5F7] md:text-3xl">
+            Connects to all your clients&apos; paid subscriptions
+          </h2>
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-8">
             {platforms.map((p) => (
-              <span key={p} className="text-sm font-medium text-[#3A3B3D] transition hover:text-[#8A8D8F]">
-                {p}
-              </span>
+              <div
+                key={p.name}
+                className="flex flex-col items-center gap-2 rounded-xl border border-[#2E3032] bg-[#1F2122] p-3 transition hover:border-[#3A3B3D]"
+                title={p.name}
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=64`} alt={p.name} className="h-5 w-5" />
+                </span>
+                <span className="text-center text-[10px] leading-tight text-[#8A8D8F]">{p.name}</span>
+              </div>
             ))}
-            <span className="text-sm font-medium text-[#8A8D8F]">+ many more</span>
           </div>
+          <p className="mt-6 text-center text-sm text-[#8A8D8F]">…and many more — if your client uses it, just ask and we&apos;ll connect it.</p>
         </FadeIn>
       </div>
     </section>
@@ -372,7 +398,7 @@ const features = [
 
 function Features() {
   return (
-    <section id="integrations" className="border-t border-[#2E3032] py-20 md:py-32">
+    <section id="why" className="border-t border-[#2E3032] py-20 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <FadeIn>
           <div className="mb-16 text-center">
