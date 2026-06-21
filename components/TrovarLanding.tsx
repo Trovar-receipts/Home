@@ -36,6 +36,8 @@ const TrovarWordmark = ({ className }: { className?: string; light?: boolean }) 
   <img
     src="/logo-wordmark.svg"
     alt="Trovar"
+    width={98}
+    height={28}
     className={cn('h-7 w-auto', className)}
   />
 )
@@ -198,11 +200,15 @@ function Hero() {
             invoices.
           </h1>
 
-          {/* Sub */}
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#8A8D8F]">
-            Trovar connects to every paid subscription your clients run — the likes of Meta, Google,
-            Adobe, Shopify and more — and pulls every invoice in for you. Forward one by email or add
-            it by hand, and it all lands in one tidy, IRD-ready place. No portals. No chasing. No 2FA headaches.
+          {/* Sub — the closed loop */}
+          <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
+            Every invoice. However it arrives.<br className="hidden sm:block" />
+            <span className="text-[#7DD3FC]">API, email, or by hand — all in one place.</span>
+          </p>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
+            Trovar connects to every paid subscription your clients run — Meta, Google, Adobe, Shopify
+            and more — and pulls each invoice in automatically. Anything off-platform? Forward it by email
+            or add it by hand. It all lands in one tidy, IRD-ready place. No portals. No chasing. No 2FA headaches.
           </p>
 
           {/* CTA */}
@@ -299,7 +305,15 @@ function PlatformStrip() {
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`https://www.google.com/s2/favicons?domain=${p.domain}&sz=64`} alt={p.name} className="h-5 w-5" />
+                  <img
+                    src={`https://icons.duckduckgo.com/ip3/${p.domain}.ico`}
+                    alt={`${p.name} logo`}
+                    width={20}
+                    height={20}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-5 w-5"
+                  />
                 </span>
                 <span className="text-center text-[10px] leading-tight text-[#8A8D8F]">{p.name}</span>
               </div>
@@ -543,13 +557,16 @@ function VsHubdoc() {
       <div className="mx-auto max-w-5xl px-6">
         <FadeIn>
           <div className="rounded-2xl border border-[#2E3032] bg-[#1F2122] p-8 md:p-12">
-            <p className="mb-4 text-xs tracking-widest text-[#4A4D4F] uppercase">Why not Hubdoc?</p>
+            <p className="mb-4 text-xs tracking-widest text-[#4A4D4F] uppercase">Why not Hubdoc or Dext?</p>
             <h2 className="text-2xl font-light text-[#F5F5F7] md:text-4xl">
               &ldquo;Hubdoc did a beautiful job.<br />
               <span className="text-[#8A8D8F]">Then 2FA killed it.&rdquo;</span>
             </h2>
             <p className="mt-4 max-w-xl text-[#8A8D8F]">
               A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you — which breaks every time a platform adds 2FA. Meta, Google and Adobe all have. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
+            </p>
+            <p className="mt-3 max-w-xl text-[#8A8D8F]">
+              <span className="text-[#E6E6E8]">And vs Dext?</span> Dext waits for documents to arrive — you still chase the ones that never do. Trovar goes and gets them, straight from the source.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#2E3032] bg-[#000D0F] p-5">
@@ -583,6 +600,10 @@ const faqs = [
   {
     q: 'How is Trovar different from Hubdoc?',
     a: 'Hubdoc stores your client\'s passwords and logs in as them — which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security.',
+  },
+  {
+    q: 'How is Trovar different from Dext?',
+    a: 'Dext (and Receipt Bank before it) waits for documents to arrive — someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients\' paid platforms via API and pulls invoices automatically, and captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
   },
   {
     q: 'Which platforms does Trovar connect to?',

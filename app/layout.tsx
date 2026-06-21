@@ -13,22 +13,26 @@ const geistMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Trovar — Smart Receipt Collection for Modern Accountants',
+  title: 'Trovar — Automatic Invoice Collection for Accountants | Hubdoc & Dext Alternative',
   description:
-    'Trovar connects directly to Meta, Google, Adobe and Shopify via billing APIs — automatically collecting invoices for NZ and AU accounting firms. No portals. No chasing. No 2FA headaches. IRD compliant records pushed to Xero automatically.',
+    'Trovar pulls every supplier invoice for your clients — automatically. Connects to Meta, Google, Adobe, Shopify and more via billing APIs, captures emailed and manual invoices too, and files IRD-compliant GST records. The closed-loop Hubdoc and Dext alternative built for NZ & AU accounting firms. First client free, forever.',
   keywords: [
+    'automatic invoice collection',
+    'Hubdoc alternative',
+    'Dext alternative',
+    'Receipt Bank alternative',
+    'invoice collection software NZ',
+    'invoice automation for accountants',
     'receipt automation NZ',
-    'invoice collection New Zealand',
     'accounting software NZ',
-    'Xero integration',
+    'Xero invoice automation',
     'Meta ads invoices',
     'Google ads receipts',
     'IRD compliant records',
     'GST records New Zealand',
-    'Hubdoc alternative',
-    'accounting firm software',
-    'digital receipt collection',
-    'expense management NZ',
+    'accounting firm software NZ AU',
+    'bookkeeping automation',
+    'supplier invoice capture',
   ],
   authors: [{ name: 'Trovar', url: 'https://trovar.co.nz' }],
   creator: 'Trovar',
@@ -87,46 +91,119 @@ export default function RootLayout({
   return (
     <html lang="en-NZ">
       <head>
-        {/* Schema.org structured data */}
+        {/* Schema.org structured data — graph of Organization, SoftwareApplication & FAQ.
+            The FAQPage is what AI assistants (ChatGPT, Perplexity, Gemini) and Google
+            surface directly, so the answers double as our AI-search positioning. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'Trovar',
-              description:
-                'Smart receipt collection for modern accountants. Automatically collects invoices from Meta, Google, Adobe and Shopify via billing APIs. IRD compliant records pushed to Xero.',
-              url: 'https://trovar.co.nz',
-              applicationCategory: 'BusinessApplication',
-              operatingSystem: 'Web',
-              offers: {
-                '@type': 'Offer',
-                price: '29',
-                priceCurrency: 'NZD',
-                priceSpecification: {
-                  '@type': 'UnitPriceSpecification',
-                  price: '29',
-                  priceCurrency: 'NZD',
-                  unitText: 'per client per month',
+              '@graph': [
+                {
+                  '@type': 'Organization',
+                  '@id': 'https://trovar.co.nz/#organization',
+                  name: 'Trovar',
+                  url: 'https://trovar.co.nz',
+                  logo: 'https://trovar.co.nz/logo-mark.svg',
+                  email: 'hello@trovar.co.nz',
+                  areaServed: ['New Zealand', 'Australia'],
+                  description:
+                    'Automatic supplier-invoice collection for accounting firms in New Zealand and Australia.',
                 },
-              },
-              audience: {
-                '@type': 'Audience',
-                audienceType: 'Accounting firms in New Zealand and Australia',
-              },
-              featureList: [
-                'Automatic invoice collection from Meta Ads',
-                'Automatic invoice collection from Google Ads',
-                'Automatic invoice collection from Adobe Creative Cloud',
-                'Automatic invoice collection from Shopify',
-                'IRD compliant expense records',
-                'NZ GST calculation',
-                'Xero integration',
-                'Multi-client management for accounting firms',
+                {
+                  '@type': 'SoftwareApplication',
+                  '@id': 'https://trovar.co.nz/#software',
+                  name: 'Trovar',
+                  description:
+                    'Trovar automatically collects every supplier invoice for your clients — pulling them from paid platforms like Meta, Google, Adobe and Shopify via billing APIs, and capturing emailed and manual invoices too. A closed-loop alternative to Hubdoc and Dext, with IRD-compliant GST records for NZ & AU accountants.',
+                  url: 'https://trovar.co.nz',
+                  applicationCategory: 'BusinessApplication',
+                  operatingSystem: 'Web',
+                  publisher: { '@id': 'https://trovar.co.nz/#organization' },
+                  offers: {
+                    '@type': 'Offer',
+                    price: '29',
+                    priceCurrency: 'NZD',
+                    description: 'First client free forever, then $29 NZD per client per month.',
+                    priceSpecification: {
+                      '@type': 'UnitPriceSpecification',
+                      price: '29',
+                      priceCurrency: 'NZD',
+                      unitText: 'per client per month',
+                    },
+                  },
+                  audience: {
+                    '@type': 'Audience',
+                    audienceType: 'Accounting firms in New Zealand and Australia',
+                  },
+                  featureList: [
+                    'Automatic invoice collection from Meta, Google, Adobe, Shopify and more',
+                    'Email-in capture — forward any supplier invoice',
+                    'Manual invoice entry for off-platform expenses',
+                    'IRD-compliant taxable supply records with GST calculated',
+                    'Practice dashboard and one-click exports',
+                    'Multi-client management for accounting firms',
+                    'Xero integration (coming soon)',
+                  ],
+                  areaServed: ['New Zealand', 'Australia'],
+                  inLanguage: 'en-NZ',
+                },
+                {
+                  '@type': 'FAQPage',
+                  '@id': 'https://trovar.co.nz/#faq',
+                  mainEntity: [
+                    {
+                      '@type': 'Question',
+                      name: 'How is Trovar different from Hubdoc?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Hubdoc stores your client’s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections to access billing data directly. It never stores passwords and won’t break when Meta or Google update their security.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'How is Trovar different from Dext?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Dext waits for documents to arrive — someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients’ paid platforms via API and pulls invoices automatically, and also captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'Which platforms does Trovar connect to?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Trovar connects to your clients’ paid subscriptions — the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. For anything off-platform you can forward an invoice by email or add it manually, so nothing slips through.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'Does Trovar work with Xero?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Direct push to Xero, correctly coded with the GST split, is coming soon, and Trovar is a Xero App Partner. Today every invoice is captured, GST-calculated and one-click exportable into your workflow.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'Is the data IRD compliant?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Yes. Every record Trovar generates contains the fields IRD requires as taxable supply information — supplier, date, amount, GST component and description. Both domestic and overseas merchant GST is handled correctly.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'How much does Trovar cost?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Your first client is free, forever, with no card required. After that it is $29 NZD per client account per month. Add or remove clients any time. Most firms fold this into their bookkeeping fee.',
+                      },
+                    },
+                  ],
+                },
               ],
-              areaServed: ['New Zealand', 'Australia'],
-              inLanguage: 'en-NZ',
             }),
           }}
         />
