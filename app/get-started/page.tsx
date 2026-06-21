@@ -303,7 +303,7 @@ function Success({ email }: { email: string }) {
       </div>
       <h1 className="text-3xl font-light text-[#F5F5F7] md:text-4xl">We're preparing your account</h1>
       <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-        Thanks — we've got your details. Our team is setting up your connections now. We'll email{" "}
+        Thanks, we've got your details. Our team is setting up your connections now. We'll email{" "}
         <span className="text-[#F5F5F7]">{email}</span> the moment it's ready to use.
       </p>
       <a

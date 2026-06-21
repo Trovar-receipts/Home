@@ -215,7 +215,7 @@ function Hero() {
 
           {/* Sub */}
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#8A8D8F]">
-            Trovar connects directly to Meta, Google, Adobe and Shopify — pulling invoices automatically into Xero. No portals. No chasing. No 2FA headaches.
+            Trovar connects directly to Meta, Google, Adobe and Shopify, pulling invoices automatically into Xero. No portals. No chasing. No 2FA headaches.
           </p>
 
           {/* Email capture */}
@@ -223,7 +223,7 @@ function Hero() {
             {submitted ? (
               <div className="flex items-center gap-2 rounded-xl border border-[#22C55E]/30 bg-[#22C55E]/10 px-6 py-3 text-[#22C55E]">
                 <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
-                You're on the list — we'll be in touch shortly.
+                You're on the list. We'll be in touch shortly.
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2">
@@ -261,7 +261,7 @@ function Hero() {
                   <div className="h-4 w-4 rounded bg-[#F5F5F7] flex items-center justify-center">
                     <TrovarMark size={12} dark />
                   </div>
-                  <span className="text-xs text-[#4A4D4F]">trovar.app — Carter Accounting</span>
+                  <span className="text-xs text-[#4A4D4F]">trovar.app: Carter Accounting</span>
                 </div>
               </div>
 
@@ -347,12 +347,12 @@ const steps = [
   {
     number: '01',
     title: 'Connect once',
-    description: 'Your accountant connects your Meta, Google, Adobe and Shopify accounts via OAuth — no passwords stored, no 2FA issues.',
+    description: 'Your accountant connects your Meta, Google, Adobe and Shopify accounts via OAuth. No passwords stored, no 2FA issues.',
   },
   {
     number: '02',
     title: 'Trovar fetches everything',
-    description: 'On demand or scheduled, Trovar pulls every invoice directly from the source. PDFs, amounts, dates — all captured automatically.',
+    description: 'On demand or scheduled, Trovar pulls every invoice directly from the source. PDFs, amounts, dates, all captured automatically.',
   },
   {
     number: '03',
@@ -396,7 +396,7 @@ const features = [
   {
     icon: Zap,
     title: 'API-first, not scraping',
-    description: 'Direct billing API connections — not credential scraping. Works when Hubdoc doesn\'t. 2FA will never break Trovar.',
+    description: 'Direct billing API connections, not credential scraping. Works when Hubdoc doesn\'t. 2FA will never break Trovar.',
   },
   {
     icon: Shield,
@@ -406,7 +406,7 @@ const features = [
   {
     icon: RefreshCw,
     title: 'Auto-push to Xero',
-    description: 'Matched invoices push directly to your client\'s Xero account — correctly coded, GST split, ready for reconciliation.',
+    description: 'Matched invoices push directly to your client\'s Xero account, correctly coded, GST split, ready for reconciliation.',
   },
   {
     icon: BarChart3,
@@ -563,12 +563,12 @@ function VsHubdoc() {
               <span className="text-[#8A8D8F]">Then 2FA killed it."</span>
             </h2>
             <p className="mt-4 max-w-xl text-[#8A8D8F]">
-              A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you — which breaks every time a platform adds 2FA. Meta, Google, Adobe have all added it. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
+              A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you, which breaks every time a platform adds 2FA. Meta, Google, Adobe have all added it. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#2E3032] bg-[#000D0F] p-5">
                 <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Hubdoc</p>
-                {['Credential scraping — breaks on 2FA', 'Nearly 2,000 outages recorded', 'No NZ IRD compliance layer', 'Free but increasingly broken'].map((item) => (
+                {['Credential scraping that breaks on 2FA', 'Nearly 2,000 outages recorded', 'No NZ IRD compliance layer', 'Free but increasingly broken'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <X className="h-3.5 w-3.5 text-red-500/70" />
                     {item}
@@ -577,7 +577,7 @@ function VsHubdoc() {
               </div>
               <div className="rounded-xl border border-[#22C55E]/20 bg-[#22C55E]/5 p-5">
                 <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Trovar</p>
-                {['OAuth API — immune to 2FA', 'Direct billing API connections', 'NZ GST & IRD records built in', 'Gets stronger as 2FA spreads'].map((item) => (
+                {['OAuth API, immune to 2FA', 'Direct billing API connections', 'NZ GST & IRD records built in', 'Gets stronger as 2FA spreads'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <span className="h-3.5 w-3.5 rounded-full bg-[#22C55E]/60 flex-shrink-0" />
                     {item}
@@ -596,7 +596,7 @@ function VsHubdoc() {
 const faqs = [
   {
     q: 'How is Trovar different from Hubdoc?',
-    a: 'Hubdoc stores your client\'s passwords and logs in as them — which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security.',
+    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security.',
   },
   {
     q: 'Which platforms does Trovar connect to?',
@@ -604,15 +604,15 @@ const faqs = [
   },
   {
     q: 'Does it work with Xero?',
-    a: 'Yes — Xero is the primary accounting output. Every collected invoice is pushed directly to the client\'s Xero account, correctly coded and with GST calculated. We\'re also a Xero App Partner.',
+    a: 'Yes. Xero is the primary accounting output. Every collected invoice is pushed directly to the client\'s Xero account, correctly coded and with GST calculated. We\'re also a Xero App Partner.',
   },
   {
     q: 'Is the data IRD compliant?',
-    a: 'Yes. Every record Trovar generates contains the fields required by IRD as taxable supply information — supplier, date, amount, GST component, and description. Both domestic and overseas merchant GST is handled correctly.',
+    a: 'Yes. Every record Trovar generates contains the fields required by IRD as taxable supply information: supplier, date, amount, GST component, and description. Both domestic and overseas merchant GST is handled correctly.',
   },
   {
     q: 'How does pricing work for accounting firms?',
-    a: 'You pay per client account under management — $29 NZD/month at Starter, $22 at Practice (10+ clients). You can pass this cost to clients as part of your bookkeeping fee — most firms charge $50-100/month and make a healthy margin.',
+    a: 'You pay per client account under management: $29 NZD/month at Starter, $22 at Practice (10+ clients). You can pass this cost to clients as part of your bookkeeping fee. Most firms charge $50 to $100/month and make a healthy margin.',
   },
   {
     q: 'Is there a free trial?',
@@ -686,7 +686,7 @@ function WaitlistCTA() {
             {submitted ? (
               <div className="flex items-center gap-2 rounded-xl border border-[#22C55E]/30 bg-[#22C55E]/10 px-6 py-3 text-[#22C55E]">
                 <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
-                You're on the list — we'll be in touch shortly.
+                You're on the list. We'll be in touch shortly.
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2">

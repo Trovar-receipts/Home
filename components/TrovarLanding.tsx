@@ -200,14 +200,14 @@ function Hero() {
             invoices.
           </h1>
 
-          {/* Sub — the closed loop */}
+          {/* Sub: the closed loop */}
           <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
             Every invoice. However it arrives.{' '}<br className="hidden sm:block" />
-            <span className="text-[#7DD3FC]">API, email, or by hand — all in one place.</span>
+            <span className="text-[#7DD3FC]">API, email, or by hand. All in one place.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
-            Trovar connects to every paid subscription your clients run — Meta, Google, Adobe, Shopify
-            and more — and pulls each invoice in automatically. Anything off-platform? Forward it by email
+            Trovar connects to every paid subscription your clients run, Meta, Google, Adobe, Shopify
+            and more, and pulls each invoice in automatically. Anything off-platform? Forward it by email
             or add it by hand. It all lands in one tidy, IRD-ready place. No portals. No chasing. No 2FA headaches.
           </p>
 
@@ -319,7 +319,7 @@ function PlatformStrip() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-center text-sm text-[#8A8D8F]">…and many more — if your client uses it, just ask and we&apos;ll connect it.</p>
+          <p className="mt-6 text-center text-sm text-[#8A8D8F]">…and many more. If your client uses it, just ask and we&apos;ll connect it.</p>
         </FadeIn>
       </div>
     </section>
@@ -331,17 +331,17 @@ const steps = [
   {
     number: '01',
     title: 'Connect once',
-    description: 'Connect each client\'s paid platforms via secure OAuth — no passwords stored, no 2FA issues. Set it up once and forget it.',
+    description: 'Connect each client\'s paid platforms via secure OAuth. No passwords stored, no 2FA issues. Set it up once and forget it.',
   },
   {
     number: '02',
     title: 'Trovar collects everything',
-    description: 'Trovar pulls every invoice straight from the source — and captures anything forwarded to the client\'s Trovar email address or added by hand. PDFs, amounts, dates and GST, all in one place.',
+    description: 'Trovar pulls every invoice straight from the source, and captures anything forwarded to the client\'s Trovar email address or added by hand. PDFs, amounts, dates and GST, all in one place.',
   },
   {
     number: '03',
     title: 'Captured & audit-ready',
-    description: 'Every invoice has its supplier, date, GST and amount captured — ready to reconcile in Xero. Export any client, any period, in one click. Direct Xero push is coming soon.',
+    description: 'Every invoice has its supplier, date, GST and amount captured, ready to reconcile in Xero. Export any client, any period, in one click. Direct Xero push is coming soon.',
   },
 ]
 
@@ -380,12 +380,12 @@ const features = [
   {
     icon: Zap,
     title: 'API-first, not scraping',
-    description: 'Direct billing-API connections — not credential scraping. Works when Hubdoc doesn\'t. 2FA will never break Trovar.',
+    description: 'Direct billing-API connections, not credential scraping. Works when Hubdoc doesn\'t. 2FA will never break Trovar.',
   },
   {
     icon: Mail,
     title: 'Email-in & manual capture',
-    description: 'Every client gets a unique Trovar email address — forward any supplier invoice and it files itself. Off-platform expense? Add it by hand in seconds.',
+    description: 'Every client gets a unique Trovar email address. Forward any supplier invoice and it files itself. Off-platform expense? Add it by hand in seconds.',
   },
   {
     icon: Shield,
@@ -395,7 +395,7 @@ const features = [
   {
     icon: BarChart3,
     title: 'Accountant dashboard',
-    description: 'One view of every client\'s invoices — collected, pending, what needs attention. No more inbox archaeology.',
+    description: 'One view of every client\'s invoices: collected, pending, what needs attention. No more inbox archaeology.',
   },
   {
     icon: Users,
@@ -463,7 +463,7 @@ function Pricing() {
         'IRD-compliant taxable supply records',
         'Practice dashboard & one-click exports',
         'Priority support from the founders',
-        'Xero integration — coming soon',
+        'Xero integration (coming soon)',
       ],
       cta: 'Get started',
       href: '/get-started',
@@ -497,7 +497,7 @@ function Pricing() {
               <span className="text-[#8A8D8F]">Per client account.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-              One flat rate per client under management — and your first client is free, forever (no card needed). Most firms fold it straight into their bookkeeping fee.
+              One flat rate per client under management, and your first client is free, forever (no card needed). Most firms fold it straight into their bookkeeping fee.
             </p>
           </div>
         </FadeIn>
@@ -563,15 +563,15 @@ function VsHubdoc() {
               <span className="text-[#8A8D8F]">Then 2FA killed it.&rdquo;</span>
             </h2>
             <p className="mt-4 max-w-xl text-[#8A8D8F]">
-              A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you — which breaks every time a platform adds 2FA. Meta, Google and Adobe all have. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
+              A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you, which breaks every time a platform adds 2FA. Meta, Google and Adobe all have. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
             </p>
             <p className="mt-3 max-w-xl text-[#8A8D8F]">
-              <span className="text-[#E6E6E8]">And vs Dext?</span> Dext waits for documents to arrive — you still chase the ones that never do. Trovar goes and gets them, straight from the source.
+              <span className="text-[#E6E6E8]">And vs Dext?</span> Dext waits for documents to arrive. You still chase the ones that never do. Trovar goes and gets them, straight from the source.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#2E3032] bg-[#000D0F] p-5">
                 <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Hubdoc</p>
-                {['Credential scraping — breaks on 2FA', 'Nearly 2,000 outages recorded', 'No NZ IRD compliance layer', 'Free but increasingly broken'].map((item) => (
+                {['Credential scraping that breaks on 2FA', 'Nearly 2,000 outages recorded', 'No NZ IRD compliance layer', 'Free but increasingly broken'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <X className="h-3.5 w-3.5 text-red-500/70" />
                     {item}
@@ -580,7 +580,7 @@ function VsHubdoc() {
               </div>
               <div className="rounded-xl border border-[#22C55E]/20 bg-[#22C55E]/5 p-5">
                 <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Trovar</p>
-                {['OAuth API — immune to 2FA', 'Reads invoices forwarded by email too', 'NZ GST & IRD records built in', 'Gets stronger as 2FA spreads'].map((item) => (
+                {['OAuth API, immune to 2FA', 'Reads invoices forwarded by email too', 'NZ GST & IRD records built in', 'Gets stronger as 2FA spreads'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <span className="h-3.5 w-3.5 rounded-full bg-[#22C55E]/60 flex-shrink-0" />
                     {item}
@@ -599,35 +599,35 @@ function VsHubdoc() {
 const faqs = [
   {
     q: 'How is Trovar different from Hubdoc?',
-    a: 'Hubdoc stores your client\'s passwords and logs in as them — which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security.',
+    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security.',
   },
   {
     q: 'How is Trovar different from Dext?',
-    a: 'Dext (and Receipt Bank before it) waits for documents to arrive — someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients\' paid platforms via API and pulls invoices automatically, and captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
+    a: 'Dext (and Receipt Bank before it) waits for documents to arrive. Someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients\' paid platforms via API and pulls invoices automatically, and captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
   },
   {
     q: 'Which platforms does Trovar connect to?',
-    a: 'Trovar connects to your clients\' paid subscriptions — the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. And for anything off-platform, you can forward an invoice by email or add it manually — so nothing slips through.',
+    a: 'Trovar connects to your clients\' paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. And for anything off-platform, you can forward an invoice by email or add it manually, so nothing slips through.',
   },
   {
     q: 'Can I forward invoices by email?',
-    a: 'Yes. Every client gets a unique Trovar email address — forward any supplier invoice (or have a supplier send straight to it) and Trovar reads it and files it automatically. You can also add invoices by hand for anything off-platform.',
+    a: 'Yes. Every client gets a unique Trovar email address. Forward any supplier invoice (or have a supplier send straight to it) and Trovar reads it and files it automatically. You can also add invoices by hand for anything off-platform.',
   },
   {
     q: 'Does it work with Xero?',
-    a: 'Direct push to Xero — correctly coded with GST split — is coming soon, and we\'re a Xero App Partner. Today, every invoice is captured, GST-calculated and one-click exportable into your workflow.',
+    a: 'Direct push to Xero, correctly coded with GST split, is coming soon, and we\'re a Xero App Partner. Today, every invoice is captured, GST-calculated and one-click exportable into your workflow.',
   },
   {
     q: 'Is the data IRD compliant?',
-    a: 'Yes. Every record Trovar generates contains the fields IRD requires as taxable supply information — supplier, date, amount, GST component and description. Both domestic and overseas merchant GST is handled correctly.',
+    a: 'Yes. Every record Trovar generates contains the fields IRD requires as taxable supply information: supplier, date, amount, GST component and description. Both domestic and overseas merchant GST is handled correctly.',
   },
   {
     q: 'How does pricing work for accounting firms?',
-    a: 'It\'s $29 NZD per client account per month — and your first client is free, forever, with no card required. Add more clients for $29 each whenever you\'re ready; remove one and it drops off. Most firms fold this into their bookkeeping fee and make a healthy margin.',
+    a: 'It\'s $29 NZD per client account per month, and your first client is free, forever, with no card required. Add more clients for $29 each whenever you\'re ready; remove one and it drops off. Most firms fold this into their bookkeeping fee and make a healthy margin.',
   },
   {
     q: 'Do I need a card to start?',
-    a: 'No card needed to start. Your first client is free forever, so you can run Trovar on a real client at no cost for as long as you like — add more for $29/month each whenever you\'re ready.',
+    a: 'No card needed to start. Your first client is free forever, so you can run Trovar on a real client at no cost for as long as you like. Add more for $29/month each whenever you\'re ready.',
   },
 ]
 
@@ -679,7 +679,7 @@ function FoundersNote() {
           <p className="mx-auto mt-4 max-w-xl text-[#8A8D8F]">
             Trovar is built by NZ-based technical founders who genuinely care about your
             practice&apos;s success. When you need a hand, you talk to the people who build the
-            product — and we&apos;ll make sure you&apos;re set up to win.
+            product, and we&apos;ll make sure you&apos;re set up to win.
           </p>
         </FadeIn>
       </div>

@@ -13,9 +13,9 @@ const geistMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Trovar — Smart Receipt Collection for Modern Accountants',
+  title: 'Trovar: Smart Receipt Collection for Modern Accountants',
   description:
-    'Trovar connects directly to Meta, Google, Adobe and Shopify via billing APIs — automatically collecting invoices for NZ and AU accounting firms. No portals. No chasing. No 2FA headaches. IRD compliant records pushed to Xero automatically.',
+    'Trovar connects directly to Meta, Google, Adobe and Shopify via billing APIs, automatically collecting invoices for NZ and AU accounting firms. No portals. No chasing. No 2FA headaches. IRD compliant records pushed to Xero automatically.',
   keywords: [
     'receipt automation NZ',
     'invoice collection New Zealand',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_NZ',
     url: 'https://trovar.co.nz',
-    title: 'Trovar — Smart Receipt Collection for Modern Accountants',
+    title: 'Trovar: Smart Receipt Collection for Modern Accountants',
     description:
       'Automatically collect invoices from Meta, Google, Adobe and Shopify. IRD compliant records pushed to Xero. Built for NZ and AU accounting firms.',
     siteName: 'Trovar',
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Trovar — Smart Receipt Collection',
+        alt: 'Trovar: Smart Receipt Collection',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trovar — Smart Receipt Collection for Modern Accountants',
+    title: 'Trovar: Smart Receipt Collection for Modern Accountants',
     description:
       'Automatically collect invoices from Meta, Google, Adobe and Shopify. IRD compliant records pushed to Xero.',
     images: ['/og-image.png'],

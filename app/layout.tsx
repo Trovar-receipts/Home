@@ -13,9 +13,9 @@ const geistMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Trovar — Automatic Invoice Collection for Accountants | Hubdoc & Dext Alternative',
+  title: 'Trovar: Automatic Invoice Collection for Accountants | Hubdoc & Dext Alternative',
   description:
-    'Trovar pulls every supplier invoice for your clients — automatically. Connects to Meta, Google, Adobe, Shopify and more via billing APIs, captures emailed and manual invoices too, and files IRD-compliant GST records. The closed-loop Hubdoc and Dext alternative built for NZ & AU accounting firms. First client free, forever.',
+    'Trovar pulls every supplier invoice for your clients, automatically. Connects to Meta, Google, Adobe, Shopify and more via billing APIs, captures emailed and manual invoices too, and files IRD-compliant GST records. The closed-loop Hubdoc and Dext alternative built for NZ & AU accounting firms. First client free, forever.',
   keywords: [
     'automatic invoice collection',
     'Hubdoc alternative',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_NZ',
     url: 'https://trovar.co.nz',
-    title: 'Trovar — Smart Receipt Collection for Modern Accountants',
+    title: 'Trovar: Smart Receipt Collection for Modern Accountants',
     description:
       'Automatically collect invoices from Meta, Google, Adobe and Shopify. IRD compliant records pushed to Xero. Built for NZ and AU accounting firms.',
     siteName: 'Trovar',
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Trovar — Smart Receipt Collection',
+        alt: 'Trovar: Smart Receipt Collection',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trovar — Smart Receipt Collection for Modern Accountants',
+    title: 'Trovar: Smart Receipt Collection for Modern Accountants',
     description:
       'Automatically collect invoices from Meta, Google, Adobe and Shopify. IRD compliant records pushed to Xero.',
     images: ['/og-image.png'],
@@ -91,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en-NZ">
       <head>
-        {/* Schema.org structured data — graph of Organization, SoftwareApplication & FAQ.
+        {/* Schema.org structured data: graph of Organization, SoftwareApplication & FAQ.
             The FAQPage is what AI assistants (ChatGPT, Perplexity, Gemini) and Google
             surface directly, so the answers double as our AI-search positioning. */}
         <script
@@ -116,7 +116,7 @@ export default function RootLayout({
                   '@id': 'https://trovar.co.nz/#software',
                   name: 'Trovar',
                   description:
-                    'Trovar automatically collects every supplier invoice for your clients — pulling them from paid platforms like Meta, Google, Adobe and Shopify via billing APIs, and capturing emailed and manual invoices too. A closed-loop alternative to Hubdoc and Dext, with IRD-compliant GST records for NZ & AU accountants.',
+                    'Trovar automatically collects every supplier invoice for your clients, pulling them from paid platforms like Meta, Google, Adobe and Shopify via billing APIs, and capturing emailed and manual invoices too. A closed-loop alternative to Hubdoc and Dext, with IRD-compliant GST records for NZ & AU accountants.',
                   url: 'https://trovar.co.nz',
                   applicationCategory: 'BusinessApplication',
                   operatingSystem: 'Web',
@@ -139,7 +139,7 @@ export default function RootLayout({
                   },
                   featureList: [
                     'Automatic invoice collection from Meta, Google, Adobe, Shopify and more',
-                    'Email-in capture — forward any supplier invoice',
+                    'Email-in capture: forward any supplier invoice',
                     'Manual invoice entry for off-platform expenses',
                     'IRD-compliant taxable supply records with GST calculated',
                     'Practice dashboard and one-click exports',
@@ -166,7 +166,7 @@ export default function RootLayout({
                       name: 'How is Trovar different from Dext?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Dext waits for documents to arrive — someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients’ paid platforms via API and pulls invoices automatically, and also captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
+                        text: 'Dext waits for documents to arrive. Someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients’ paid platforms via API and pulls invoices automatically, and also captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
                       },
                     },
                     {
@@ -174,7 +174,7 @@ export default function RootLayout({
                       name: 'Which platforms does Trovar connect to?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Trovar connects to your clients’ paid subscriptions — the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. For anything off-platform you can forward an invoice by email or add it manually, so nothing slips through.',
+                        text: 'Trovar connects to your clients’ paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. For anything off-platform you can forward an invoice by email or add it manually, so nothing slips through.',
                       },
                     },
                     {
@@ -190,7 +190,7 @@ export default function RootLayout({
                       name: 'Is the data IRD compliant?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Yes. Every record Trovar generates contains the fields IRD requires as taxable supply information — supplier, date, amount, GST component and description. Both domestic and overseas merchant GST is handled correctly.',
+                        text: 'Yes. Every record Trovar generates contains the fields IRD requires as taxable supply information: supplier, date, amount, GST component and description. Both domestic and overseas merchant GST is handled correctly.',
                       },
                     },
                     {

@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-base font-medium mb-3" style={{ color: "#F5F5F7" }}>3. How we use your data</h2>
             <ul className="mt-3 space-y-2 list-disc list-inside">
-              <li>To provide the Trovar service — retrieving and displaying invoices from connected platforms</li>
+              <li>To provide the Trovar service: retrieving and displaying invoices from connected platforms</li>
               <li>To push invoices to your Xero account (when connected)</li>
               <li>To send you service notifications and product updates</li>
               <li>To improve the product based on usage patterns</li>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-base font-medium mb-3" style={{ color: "#F5F5F7" }}>8. Cookies</h2>
-            <p>Trovar uses essential cookies only — for authentication and session management. We do not use tracking or advertising cookies.</p>
+            <p>Trovar uses essential cookies only, for authentication and session management. We do not use tracking or advertising cookies.</p>
           </section>
 
           <section>

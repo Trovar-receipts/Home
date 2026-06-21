@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Could not save" }, { status: 500 });
   }
 
-  // Notify on new lead (best-effort — never blocks the signup)
+  // Notify on new lead (best-effort, never blocks the signup)
   const resendKey = process.env.RESEND_API_KEY;
   const notifyTo = process.env.NOTIFICATION_EMAIL;
   const from = process.env.RESEND_FROM || "Trovar <hello@trovar.co.nz>";
