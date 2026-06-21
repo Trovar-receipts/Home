@@ -202,7 +202,7 @@ function Hero() {
 
           {/* Sub — the closed loop */}
           <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
-            Every invoice. However it arrives.<br className="hidden sm:block" />
+            Every invoice. However it arrives.{' '}<br className="hidden sm:block" />
             <span className="text-[#7DD3FC]">API, email, or by hand — all in one place.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
