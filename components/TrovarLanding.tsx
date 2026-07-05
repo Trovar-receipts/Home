@@ -659,8 +659,13 @@ function FAQ() {
                     className={cn('h-4 w-4 text-[#4A4D4F] transition-transform duration-200 flex-shrink-0 ml-4', open === i && 'rotate-180')}
                   />
                 </button>
-                <div className={cn('overflow-hidden transition-all duration-300', open === i ? 'max-h-72' : 'max-h-0')}>
-                  <p className="px-6 pb-5 text-sm leading-relaxed text-[#8A8D8F]">{faq.a}</p>
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+                  style={{ gridTemplateRows: open === i ? '1fr' : '0fr' }}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-6 pb-5 text-sm leading-relaxed text-[#8A8D8F]">{faq.a}</p>
+                  </div>
                 </div>
               </div>
             </FadeIn>
