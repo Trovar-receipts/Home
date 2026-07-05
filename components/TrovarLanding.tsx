@@ -607,7 +607,7 @@ const faqs = [
   },
   {
     q: 'How is Trovar different from Tailride?',
-    a: 'Tailride is a solid product, and it works the same way Trovar does for most invoices: scanning the inbox, no stored passwords. The difference is who it\'s built for. Tailride is a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client (not per invoice) so it folds straight into your bookkeeping fee, and the whole workflow, client links, per-client ledgers, expense codes, is designed to run an entire practice\'s book, not one company\'s inbox.',
+    a: 'For Meta Ads, Tailride uses a browser extension that has to ride your client\'s live, logged-in session, so someone still has to open the account and click through it every time. Trovar pulls Meta\'s billing charges directly via API. Once your practice is connected, you pull a client\'s charges yourself, whenever suits you, without ever asking them to log into anything. The task stays with you, not your client, which means one less thing for them to forget and one less chance of the wrong file being sent. Tailride is also a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, not one company\'s inbox.',
   },
   {
     q: 'Which platforms does Trovar connect to?',
