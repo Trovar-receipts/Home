@@ -206,9 +206,9 @@ function Hero() {
             <span className="text-[#B6FF3B]">API, email, or by hand. All in one place.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
-            Trovar connects to every paid subscription your clients run, Meta, Google, Adobe, Shopify
-            and more, and pulls each invoice in automatically. Anything off-platform? Forward it by email
-            or add it by hand. It all lands in one tidy, IRD-ready place. No portals. No chasing. No 2FA headaches.
+            Suppliers that email their invoices file themselves, automatically. Meta and Google Ads take
+            a 60-second monthly step, no logins shared, no accounts flagged. Anything else, forward it by
+            email or add it by hand. It all lands in one tidy, IRD-ready place. No portals. No chasing. No 2FA headaches.
           </p>
 
           {/* CTA */}
@@ -330,18 +330,18 @@ function PlatformStrip() {
 const steps = [
   {
     number: '01',
-    title: 'Connect once',
-    description: 'Connect each client\'s paid platforms via secure OAuth. No passwords stored, no 2FA issues. Set it up once and forget it.',
+    title: 'Set up once per client',
+    description: 'Give each client a private Trovar email address and, for ad platforms, a billing contact to add. No passwords shared, no logins handed over, ever.',
   },
   {
     number: '02',
-    title: 'Trovar collects everything',
-    description: 'Trovar pulls every invoice straight from the source, and captures anything forwarded to the client\'s Trovar email address or added by hand. PDFs, amounts, dates and GST, all in one place.',
+    title: 'Invoices find their way in',
+    description: 'Suppliers that email invoices file themselves. Meta and Google Ads take a 60-second monthly upload of the client\'s own transaction file, straight from the platform, no login required. Everything else, forward it or add it by hand.',
   },
   {
     number: '03',
     title: 'Captured & audit-ready',
-    description: 'Every invoice has its supplier, date, GST and amount captured, ready to reconcile in Xero. Export any client, any period, in one click. Direct Xero push is coming soon.',
+    description: 'Every invoice has its supplier, date, GST and amount captured, ready to reconcile against the bank feed. Export any client, any period, in one click. Direct Xero push is coming soon.',
   },
 ]
 
@@ -379,8 +379,8 @@ function HowItWorks() {
 const features = [
   {
     icon: Zap,
-    title: 'API-first, not scraping',
-    description: 'Direct billing-API connections, not credential scraping. Works when Hubdoc doesn\'t. 2FA will never break Trovar.',
+    title: 'Never logs in as your client',
+    description: 'No stored passwords, no bots driving a browser session. Works when Hubdoc doesn\'t, and your clients\' ad accounts are never at risk of being flagged for suspicious login activity.',
   },
   {
     icon: Mail,
@@ -566,7 +566,7 @@ function VsHubdoc() {
               A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you, which breaks every time a platform adds 2FA. Meta, Google and Adobe all have. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
             </p>
             <p className="mt-3 max-w-xl text-[#8A8D8F]">
-              <span className="text-[#E6E6E8]">And vs Dext?</span> Dext waits for documents to arrive. You still chase the ones that never do. Trovar goes and gets them, straight from the source.
+              <span className="text-[#E6E6E8]">And vs Dext?</span> Dext waits for documents to arrive, or logs into your client&apos;s ad accounts to fetch them, the same risky trick as Hubdoc. Trovar never logs in on your behalf, and every ad-platform charge comes straight from the client&apos;s own export, matched to the bank line.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#2E3032] bg-[#000D0F] p-5">
@@ -603,11 +603,15 @@ const faqs = [
   },
   {
     q: 'How is Trovar different from Dext?',
-    a: 'Dext (and Receipt Bank before it) waits for documents to arrive. Someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients\' paid platforms via API and pulls invoices automatically, and captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
+    a: 'Dext (and Receipt Bank before it) mostly waits for documents to arrive, and for platforms it does chase, it logs into the account for you, the same credential-scraping trick that breaks Hubdoc. Trovar never logs in on a client\'s behalf. Suppliers that email invoices file themselves; ad platforms take a 60-second monthly step using the client\'s own export, never a shared login. Dext is a smart inbox; Trovar closes the loop without the risk.',
+  },
+  {
+    q: 'How is Trovar different from Tailride?',
+    a: 'Tailride is a solid product, and it works the same way Trovar does for most invoices: scanning the inbox, no stored passwords. The difference is who it\'s built for. Tailride is a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client (not per invoice) so it folds straight into your bookkeeping fee, and the whole workflow, client links, per-client ledgers, expense codes, is designed to run an entire practice\'s book, not one company\'s inbox.',
   },
   {
     q: 'Which platforms does Trovar connect to?',
-    a: 'Trovar connects to your clients\' paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. And for anything off-platform, you can forward an invoice by email or add it manually, so nothing slips through.',
+    a: 'Trovar connects to your clients\' paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. Suppliers that email invoices are captured automatically; ad platforms take a short monthly step; and for anything off-platform, you can forward an invoice by email or add it manually, so nothing slips through.',
   },
   {
     q: 'Can I forward invoices by email?',

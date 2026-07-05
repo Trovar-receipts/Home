@@ -13,13 +13,14 @@ const geistMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Trovar: Automatic Invoice Collection for Accountants | Hubdoc & Dext Alternative',
+  title: 'Trovar: Invoice Collection for Accountants | Hubdoc, Dext & Tailride Alternative',
   description:
-    'Trovar pulls every supplier invoice for your clients, automatically. Connects to Meta, Google, Adobe, Shopify and more via billing APIs, captures emailed and manual invoices too, and files IRD-compliant GST records. The closed-loop Hubdoc and Dext alternative built for NZ & AU accounting firms. First client free, forever.',
+    'Trovar collects every supplier invoice for your clients without ever logging in on their behalf. Suppliers that email invoices file themselves, Meta and Google Ads take a 60-second monthly step, and everything else can be forwarded or added by hand. IRD-compliant GST records, built for NZ & AU accounting firms. First client free, forever.',
   keywords: [
-    'automatic invoice collection',
+    'invoice collection for accountants',
     'Hubdoc alternative',
     'Dext alternative',
+    'Tailride alternative',
     'Receipt Bank alternative',
     'invoice collection software NZ',
     'invoice automation for accountants',
@@ -116,7 +117,7 @@ export default function RootLayout({
                   '@id': 'https://trovar.co.nz/#software',
                   name: 'Trovar',
                   description:
-                    'Trovar automatically collects every supplier invoice for your clients, pulling them from paid platforms like Meta, Google, Adobe and Shopify via billing APIs, and capturing emailed and manual invoices too. A closed-loop alternative to Hubdoc and Dext, with IRD-compliant GST records for NZ & AU accountants.',
+                    'Trovar collects every supplier invoice for your clients without logging in on their behalf: automatic capture for suppliers that email invoices, a short monthly step for Meta and Google Ads, and email or manual capture for everything else. An alternative to Hubdoc, Dext and Tailride, with IRD-compliant GST records for NZ & AU accountants.',
                   url: 'https://trovar.co.nz',
                   applicationCategory: 'BusinessApplication',
                   operatingSystem: 'Web',
@@ -138,7 +139,8 @@ export default function RootLayout({
                     audienceType: 'Accounting firms in New Zealand and Australia',
                   },
                   featureList: [
-                    'Automatic invoice collection from Meta, Google, Adobe, Shopify and more',
+                    'Automatic invoice capture for suppliers that email invoices',
+                    'Monthly one-click collection for Meta and Google Ads charges',
                     'Email-in capture: forward any supplier invoice',
                     'Manual invoice entry for off-platform expenses',
                     'IRD-compliant taxable supply records with GST calculated',
@@ -166,7 +168,15 @@ export default function RootLayout({
                       name: 'How is Trovar different from Dext?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Dext waits for documents to arrive. Someone still has to fetch, snap or forward every invoice, and you chase the ones that never show up. Trovar goes and gets them: it connects to your clients’ paid platforms via API and pulls invoices automatically, and also captures anything forwarded by email or added by hand. Dext is a smart inbox; Trovar closes the loop.',
+                        text: 'Dext mostly waits for documents to arrive, and for platforms it does chase, it logs into the account for you, the same credential-scraping approach that breaks Hubdoc. Trovar never logs in on a client’s behalf: suppliers that email invoices file themselves, ad platforms take a short monthly step using the client’s own export, and Trovar captures anything forwarded by email or added by hand.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'How is Trovar different from Tailride?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Tailride works similarly for most invoices, scanning the inbox with no stored passwords. The difference is who it’s built for: Tailride is a general tool priced per invoice, while Trovar is built specifically for NZ & AU accounting practices, with GST and IRD taxable-supply rules handled correctly, pricing per client rather than per invoice, and a workflow designed to run a whole practice’s book.',
                       },
                     },
                     {
@@ -174,7 +184,7 @@ export default function RootLayout({
                       name: 'Which platforms does Trovar connect to?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Trovar connects to your clients’ paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. For anything off-platform you can forward an invoice by email or add it manually, so nothing slips through.',
+                        text: 'Trovar connects to your clients’ paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. Suppliers that email invoices are captured automatically, ad platforms take a short monthly step, and for anything off-platform you can forward an invoice by email or add it manually.',
                       },
                     },
                     {
