@@ -10,7 +10,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-base font-medium mb-3" style={{ color: "#F5F5F7" }}>1. Who we are</h2>
             <p>Trovar is a SaaS platform operated by Matthew Arnott (trading as Trovar) based in New Zealand. We provide automated invoice collection services for accounting firms in New Zealand and Australia.</p>
-            <p className="mt-2">Contact: <a href="mailto:matt@trovar.co.nz" style={{ color: "#7DD3FC" }}>matt@trovar.co.nz</a></p>
+            <p className="mt-2">Contact: <a href="mailto:matt@trovar.co.nz" style={{ color: "#B6FF3B" }}>matt@trovar.co.nz</a></p>
           </section>
 
           <section>
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
               <li>Request deletion of your data</li>
               <li>Withdraw consent for data processing</li>
             </ul>
-            <p className="mt-3">To exercise these rights, email <a href="mailto:matt@trovar.co.nz" style={{ color: "#7DD3FC" }}>matt@trovar.co.nz</a>.</p>
+            <p className="mt-3">To exercise these rights, email <a href="mailto:matt@trovar.co.nz" style={{ color: "#B6FF3B" }}>matt@trovar.co.nz</a>.</p>
           </section>
 
           <section>
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-base font-medium mb-3" style={{ color: "#F5F5F7" }}>10. Contact</h2>
-            <p>For any privacy questions or concerns: <a href="mailto:matt@trovar.co.nz" style={{ color: "#7DD3FC" }}>matt@trovar.co.nz</a></p>
+            <p>For any privacy questions or concerns: <a href="mailto:matt@trovar.co.nz" style={{ color: "#B6FF3B" }}>matt@trovar.co.nz</a></p>
           </section>
 
         </div>

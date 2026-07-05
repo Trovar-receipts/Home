@@ -29,7 +29,7 @@ const CLIENT_BANDS = ["1–5", "6–20", "21–50", "50+"];
 
 const card = "rounded-xl border border-[#2E3032] bg-[#1F2122]";
 const inputCls =
-  "w-full rounded-xl border border-[#2E3032] bg-[#000D0F] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#4A4D4F] outline-none transition focus:border-[#7DD3FC]/50";
+  "w-full rounded-xl border border-[#2E3032] bg-[#000D0F] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#4A4D4F] outline-none transition focus:border-[#B6FF3B]/50";
 
 export default function GetStarted() {
   const [step, setStep] = useState(0);
@@ -107,7 +107,7 @@ export default function GetStarted() {
                 <div
                   key={s}
                   className="h-1 flex-1 rounded-full transition-colors"
-                  style={{ backgroundColor: s <= step ? "#7DD3FC" : "#2E3032" }}
+                  style={{ backgroundColor: s <= step ? "#B6FF3B" : "#2E3032" }}
                 />
               ))}
             </div>
@@ -149,12 +149,12 @@ export default function GetStarted() {
                         onClick={() => toggleApp(app.id)}
                         className="relative flex flex-col items-center gap-2.5 rounded-xl border p-4 text-center transition-colors"
                         style={{
-                          borderColor: selected ? "#7DD3FC" : "#2E3032",
-                          backgroundColor: selected ? "#7DD3FC14" : "#1F2122",
+                          borderColor: selected ? "#B6FF3B" : "#2E3032",
+                          backgroundColor: selected ? "#B6FF3B14" : "#1F2122",
                         }}
                       >
                         {selected && (
-                          <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#7DD3FC]">
+                          <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#B6FF3B]">
                             <Check size={11} className="text-[#04181C]" strokeWidth={3} />
                           </span>
                         )}
@@ -186,8 +186,8 @@ export default function GetStarted() {
                         onClick={() => set("clientBand", band)}
                         className="rounded-xl border py-3 text-sm font-medium transition-colors"
                         style={{
-                          borderColor: form.clientBand === band ? "#7DD3FC" : "#2E3032",
-                          backgroundColor: form.clientBand === band ? "#7DD3FC14" : "#1F2122",
+                          borderColor: form.clientBand === band ? "#B6FF3B" : "#2E3032",
+                          backgroundColor: form.clientBand === band ? "#B6FF3B14" : "#1F2122",
                           color: form.clientBand === band ? "#F5F5F7" : "#8A8D8F",
                         }}
                       >
@@ -229,7 +229,7 @@ export default function GetStarted() {
                   disabled={!canContinue}
                   className="flex items-center gap-1.5 rounded-xl px-5 py-3 text-sm font-medium transition"
                   style={{
-                    backgroundColor: canContinue ? "#7DD3FC" : "#2E3032",
+                    backgroundColor: canContinue ? "#B6FF3B" : "#2E3032",
                     color: canContinue ? "#04181C" : "#6B6E70",
                     cursor: canContinue ? "pointer" : "not-allowed",
                   }}
@@ -240,7 +240,7 @@ export default function GetStarted() {
                 <button
                   onClick={submit}
                   disabled={submitting}
-                  className="flex items-center gap-2 rounded-xl bg-[#7DD3FC] px-5 py-3 text-sm font-medium text-[#04181C] transition"
+                  className="flex items-center gap-2 rounded-xl bg-[#B6FF3B] px-5 py-3 text-sm font-medium text-[#04181C] transition"
                   style={{ opacity: submitting ? 0.7 : 1 }}
                 >
                   {submitting ? <Loader2 size={15} className="animate-spin" /> : null}
@@ -297,7 +297,7 @@ function Success({ email }: { email: string }) {
   return (
     <div className="py-10 text-center">
       <div className="mb-6 flex justify-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#7DD3FC]">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#B6FF3B]">
           <Check size={28} className="text-[#04181C]" strokeWidth={2.5} />
         </div>
       </div>

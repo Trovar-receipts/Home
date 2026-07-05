@@ -15,7 +15,7 @@ const brand = {
   textPrimary: '#F5F5F7',
   textSecondary: '#E6E6E8',
   textMuted: '#8A8D8F',
-  accent: '#7DD3FC',
+  accent: '#B6FF3B',
   accentGreen: '#22C55E',
 }
 
@@ -137,7 +137,7 @@ function Header() {
             </a>
             <a
               href="/get-started"
-              className="rounded-lg bg-[#7DD3FC] px-4 py-2 text-sm font-medium text-[#04181C] transition hover:bg-[#9ADEFC]"
+              className="rounded-lg bg-[#B6FF3B] px-4 py-2 text-sm font-medium text-[#04181C] transition hover:bg-[#C9FF6B]"
             >
               Get started
             </a>
@@ -165,7 +165,7 @@ function Header() {
               <a href="https://app.trovar.co.nz/login" className="rounded-lg border border-[#2E3032] px-4 py-2.5 text-center text-sm text-[#E6E6E8]">
                 Sign in
               </a>
-              <a href="/get-started" className="rounded-lg bg-[#7DD3FC] px-4 py-2.5 text-center text-sm font-medium text-[#04181C]">
+              <a href="/get-started" className="rounded-lg bg-[#B6FF3B] px-4 py-2.5 text-center text-sm font-medium text-[#04181C]">
                 Get started
               </a>
             </div>
@@ -189,7 +189,7 @@ function Hero() {
         }}
       />
       {/* Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[#7DD3FC]/5 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-[#B6FF3B]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <AnimatedGroup>
@@ -203,7 +203,7 @@ function Hero() {
           {/* Sub: the closed loop */}
           <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
             Every invoice. However it arrives.{' '}<br className="hidden sm:block" />
-            <span className="text-[#7DD3FC]">API, email, or by hand. All in one place.</span>
+            <span className="text-[#B6FF3B]">API, email, or by hand. All in one place.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
             Trovar connects to every paid subscription your clients run, Meta, Google, Adobe, Shopify
@@ -215,7 +215,7 @@ function Hero() {
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="/get-started"
-              className="flex items-center gap-1.5 rounded-xl bg-[#7DD3FC] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#9ADEFC]"
+              className="flex items-center gap-1.5 rounded-xl bg-[#B6FF3B] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#C9FF6B]"
             >
               Get started <ArrowRight className="h-4 w-4" />
             </a>
@@ -232,7 +232,7 @@ function Hero() {
         {/* Demo video placeholder */}
         <FadeIn delay={0.15} className="mt-16">
           <div id="demo" className="relative mx-auto max-w-4xl scroll-mt-28">
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#7DD3FC]/20 to-transparent" />
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#B6FF3B]/20 to-transparent" />
             <div className="relative overflow-hidden rounded-2xl border border-[#2E3032] bg-[#1F2122] shadow-2xl">
               {/* Browser chrome */}
               <div className="flex items-center gap-2 border-b border-[#2E3032] px-5 py-3">
@@ -252,7 +252,7 @@ function Hero() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                   <button
                     aria-label="Play product demo"
-                    className="flex h-16 w-16 items-center justify-center rounded-full bg-[#7DD3FC] text-[#04181C] shadow-lg transition hover:scale-105"
+                    className="flex h-16 w-16 items-center justify-center rounded-full bg-[#B6FF3B] text-[#04181C] shadow-lg transition hover:scale-105"
                   >
                     <Play className="h-6 w-6 translate-x-0.5" fill="currentColor" />
                   </button>
@@ -430,7 +430,7 @@ function Features() {
               <div className="group h-full rounded-2xl border border-[#2E3032] bg-[#1F2122] p-6 transition hover:border-[#3A3B3D] hover:bg-[#2A2B2C]">
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#000D0F] border border-[#2E3032]">
-                    <f.icon className="h-4 w-4 text-[#7DD3FC]" />
+                    <f.icon className="h-4 w-4 text-[#B6FF3B]" />
                   </div>
                   {f.soon && (
                     <span className="rounded-full border border-[#2E3032] bg-[#000D0F] px-2 py-0.5 text-[10px] text-[#8A8D8F]">
@@ -508,11 +508,11 @@ function Pricing() {
               <div
                 className={cn(
                   'h-full rounded-2xl border p-8 transition',
-                  tier.highlight ? 'border-[#7DD3FC]/40 bg-[#7DD3FC]/5' : 'border-[#2E3032] bg-[#1F2122]'
+                  tier.highlight ? 'border-[#B6FF3B]/40 bg-[#B6FF3B]/5' : 'border-[#2E3032] bg-[#1F2122]'
                 )}
               >
                 {tier.highlight && (
-                  <span className="mb-4 inline-block rounded-full border border-[#7DD3FC]/30 bg-[#7DD3FC]/10 px-3 py-1 text-xs text-[#7DD3FC]">
+                  <span className="mb-4 inline-block rounded-full border border-[#B6FF3B]/30 bg-[#B6FF3B]/10 px-3 py-1 text-xs text-[#B6FF3B]">
                     Most popular
                   </span>
                 )}
@@ -535,7 +535,7 @@ function Pricing() {
                   className={cn(
                     'mt-8 block rounded-xl px-4 py-2.5 text-center text-sm font-medium transition',
                     tier.highlight
-                      ? 'bg-[#7DD3FC] text-[#04181C] hover:bg-[#9ADEFC]'
+                      ? 'bg-[#B6FF3B] text-[#04181C] hover:bg-[#C9FF6B]'
                       : 'border border-[#2E3032] text-[#E6E6E8] hover:border-[#3A3B3D] hover:bg-[#2A2B2C]'
                   )}
                 >
@@ -708,7 +708,7 @@ function WaitlistCTA() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="/get-started"
-              className="flex items-center gap-1.5 rounded-xl bg-[#7DD3FC] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#9ADEFC]"
+              className="flex items-center gap-1.5 rounded-xl bg-[#B6FF3B] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#C9FF6B]"
             >
               Get started <ArrowRight className="h-4 w-4" />
             </a>
