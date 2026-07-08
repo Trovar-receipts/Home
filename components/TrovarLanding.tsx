@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, useReducedMotion, Variants } from 'framer-motion'
-import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play, PieChart } from 'lucide-react'
+import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // ─── Brand Tokens ────────────────────────────────────────────────────────────
@@ -82,6 +82,7 @@ function FadeIn({ children, className, delay = 0.05 }: { children: React.ReactNo
 
 // ─── Header ──────────────────────────────────────────────────────────────────
 const navItems = [
+  { name: 'Reconciliation', href: '#reconciliation' },
   { name: 'How it works', href: '#how' },
   { name: 'Integrations', href: '#integrations' },
   { name: 'Pricing', href: '#pricing' },
@@ -267,6 +268,67 @@ function Hero() {
   )
 }
 
+// ─── Closed loop / reconciliation showcase ───────────────────────────────────
+function ClosedLoop() {
+  const missing = [
+    { date: '14 Jun', merchant: 'Adobe Creative Cloud', amount: 'NZD 79.99' },
+    { date: '18 Jun', merchant: 'Meta Ads', amount: 'AUD 245.10' },
+  ]
+  return (
+    <section id="reconciliation" className="border-y border-[#2E3032] py-20 md:py-28 scroll-mt-24" style={{ backgroundColor: '#050C0D' }}>
+      <div className="mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2">
+        <FadeIn>
+          <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">The closed loop</p>
+          <h2 className="text-3xl font-light leading-tight text-[#F5F5F7] md:text-4xl">
+            Other tools collect invoices.<br />
+            <span className="text-[#8A8D8F]">Trovar proves they match.</span>
+          </h2>
+          <p className="mt-5 max-w-md text-[#8A8D8F]">
+            Every card transaction your client&apos;s bank feed reports gets matched against a captured
+            invoice, automatically. No more spreadsheets of red dots, no more chasing an accountant to
+            confirm what&apos;s missing. You see it, per client, in real time.
+          </p>
+          <ul className="mt-6 space-y-2.5">
+            {['Bank feed matched to captured invoices, line by line', 'A live reconciled % per client, not a guess', 'Exactly what’s still missing, drilled down'].map((f) => (
+              <li key={f} className="flex items-start gap-2.5 text-sm text-[#C9CCCE]">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B6FF3B]" />
+                {f}
+              </li>
+            ))}
+          </ul>
+          <span className="mt-6 inline-block rounded-full border border-[#2E3032] bg-[#1F2122] px-3 py-1 text-[11px] text-[#8A8D8F]">
+            Coming soon
+          </span>
+        </FadeIn>
+
+        <FadeIn delay={0.1}>
+          <div className="rounded-2xl border border-[#2E3032] bg-[#1F2122] p-6 shadow-2xl">
+            <p className="text-xs font-medium uppercase tracking-wide text-[#6B6E70]">Reconciled</p>
+            <div className="mt-2 flex items-end gap-3">
+              <span className="text-5xl font-semibold text-[#3DD68C]">94%</span>
+              <span className="mb-1.5 text-sm text-[#8A8D8F]">last 30 days</span>
+            </div>
+            <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-[#2E3032]">
+              <div className="h-full rounded-full bg-[#3DD68C]" style={{ width: '94%' }} />
+            </div>
+            <p className="mt-4 text-sm text-[#8A8D8F]">32 of 34 card transactions matched to a captured invoice.</p>
+            <div className="mt-5 space-y-2 border-t border-[#2E3032] pt-4">
+              <p className="text-xs text-[#6B6E70]">Still missing</p>
+              {missing.map((m) => (
+                <div key={m.merchant} className="flex items-center gap-3 text-xs text-[#C9CCCE]">
+                  <span className="text-[#8A8D8F]">{m.date}</span>
+                  <span className="flex-1 truncate">{m.merchant}</span>
+                  <span className="text-[#F5F5F7]">{m.amount}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  )
+}
+
 // ─── Platform logos strip ────────────────────────────────────────────────────
 const platforms: { name: string; domain: string }[] = [
   { name: 'Meta Ads', domain: 'facebook.com' },
@@ -381,12 +443,6 @@ const features = [
     icon: Zap,
     title: 'Never logs in as your client',
     description: 'No stored passwords, no bots driving a browser session. Works when Hubdoc doesn\'t, and your clients\' ad accounts are never at risk of being flagged for suspicious login activity.',
-  },
-  {
-    icon: PieChart,
-    title: 'See exactly what\'s missing',
-    description: 'A live reconciled percentage per client, matched straight against the bank feed. Instead of a spreadsheet of red dots and back-and-forth emails, you see precisely which transactions still need a receipt, and which are done.',
-    soon: true,
   },
   {
     icon: Mail,
@@ -786,6 +842,7 @@ export default function TrovarLanding() {
       <Header />
       <main>
         <Hero />
+        <ClosedLoop />
         <PlatformStrip />
         <HowItWorks />
         <Features />
