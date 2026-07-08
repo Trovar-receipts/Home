@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, useReducedMotion, Variants } from 'framer-motion'
-import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, FileCheck, Mail, Play } from 'lucide-react'
+import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play, PieChart } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // ─── Brand Tokens ────────────────────────────────────────────────────────────
@@ -381,6 +381,12 @@ const features = [
     icon: Zap,
     title: 'Never logs in as your client',
     description: 'No stored passwords, no bots driving a browser session. Works when Hubdoc doesn\'t, and your clients\' ad accounts are never at risk of being flagged for suspicious login activity.',
+  },
+  {
+    icon: PieChart,
+    title: 'See exactly what\'s missing',
+    description: 'A live reconciled percentage per client, matched straight against the bank feed. Instead of a spreadsheet of red dots and back-and-forth emails, you see precisely which transactions still need a receipt, and which are done.',
+    soon: true,
   },
   {
     icon: Mail,
