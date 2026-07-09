@@ -296,8 +296,11 @@ function ClosedLoop() {
               </li>
             ))}
           </ul>
-          <span className="mt-6 inline-block rounded-full border border-[#2E3032] bg-[#1F2122] px-3 py-1 text-[11px] text-[#8A8D8F]">
-            Coming soon
+          <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-3 py-1.5 text-[11px] text-[#8A8D8F]">
+            Powered by
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="https://icons.duckduckgo.com/ip3/airwallex.com.ico" alt="Airwallex" className="h-3.5 w-3.5 rounded-sm" />
+            Airwallex
           </span>
         </FadeIn>
 
@@ -661,15 +664,19 @@ function VsHubdoc() {
 const faqs = [
   {
     q: 'How is Trovar different from Hubdoc?',
-    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security.',
+    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security. Trovar also goes a step further than Hubdoc ever did: it checks every collected invoice against your client\'s bank feed, so you know it\'s reconciled, not just filed.',
   },
   {
     q: 'How is Trovar different from Dext?',
-    a: 'Dext (and Receipt Bank before it) mostly waits for documents to arrive, and for platforms it does chase, it logs into the account for you, the same credential-scraping trick that breaks Hubdoc. Trovar never logs in on a client\'s behalf. Suppliers that email invoices file themselves; ad platforms take a 60-second monthly step using the client\'s own export, never a shared login. Dext is a smart inbox; Trovar closes the loop without the risk.',
+    a: 'Dext (and Receipt Bank before it) mostly waits for documents to arrive, and for platforms it does chase, it logs into the account for you, the same credential-scraping trick that breaks Hubdoc. Trovar never logs in on a client\'s behalf. Suppliers that email invoices file themselves; ad platforms take a 60-second monthly step using the client\'s own export, never a shared login. Dext is a smart inbox; Trovar closes the loop without the risk, and matches everything collected against the bank feed automatically, something Dext doesn\'t do.',
   },
   {
     q: 'How is Trovar different from Tailride?',
-    a: 'For Meta Ads, Tailride uses a browser extension that has to ride your client\'s live, logged-in session, so someone still has to open the account and click through it every time. Trovar pulls Meta\'s billing charges directly via API. Once your practice is connected, you pull a client\'s charges yourself, whenever suits you, without ever asking them to log into anything. The task stays with you, not your client, which means one less thing for them to forget and one less chance of the wrong file being sent. Tailride is also a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, not one company\'s inbox.',
+    a: 'For Meta Ads, Tailride uses a browser extension that has to ride your client\'s live, logged-in session, so someone still has to open the account and click through it every time. Trovar pulls Meta\'s billing charges directly via API. Once your practice is connected, you pull a client\'s charges yourself, whenever suits you, without ever asking them to log into anything. The task stays with you, not your client, which means one less thing for them to forget and one less chance of the wrong file being sent. Tailride is also a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, not one company\'s inbox, including checking every invoice against the client\'s bank feed to prove it\'s reconciled.',
+  },
+  {
+    q: 'What does the "reconciled %" on my dashboard mean?',
+    a: 'Trovar connects to your client\'s Airwallex card feed and checks every charge against the invoices you\'ve already collected. Instead of a spreadsheet of red dots, or chasing your accountant to confirm what\'s missing, you see a live percentage per client, and exactly which transactions still need a receipt. It\'s the difference between collecting invoices and proving they actually match what was spent, and it\'s not something Hubdoc, Dext or Tailride do.',
   },
   {
     q: 'Which platforms does Trovar connect to?',

@@ -181,6 +181,14 @@ export default function RootLayout({
                     },
                     {
                       '@type': 'Question',
+                      name: 'What does the reconciled percentage on the Trovar dashboard mean?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Trovar connects to a client’s Airwallex card feed and checks every charge against the invoices already collected. Instead of a spreadsheet of red dots, or chasing an accountant to confirm what’s missing, you see a live reconciled percentage per client, and exactly which transactions still need a receipt. This closed-loop matching is not something Hubdoc, Dext or Tailride offer.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
                       name: 'Which platforms does Trovar connect to?',
                       acceptedAnswer: {
                         '@type': 'Answer',
