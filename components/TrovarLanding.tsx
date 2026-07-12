@@ -431,43 +431,56 @@ const flowDestinations = [
   { name: 'QuickBooks', domain: 'quickbooks.intuit.com' },
 ]
 
-// Straight-line paths in a 600x360 coordinate space, shared between the SVG
-// (for the visible dashed line) and the CSS motion path (for the animated
-// dot) so the two stay perfectly in sync without duplicating geometry logic.
+// Straight-line paths in a 760x400 coordinate space. The dots are native SVG
+// <animateMotion> riding the exact same <path> elements as the visible dashed
+// lines, all inside one viewBox — so as the container is scaled to fit any
+// screen width, the dots and the lines scale together and never drift apart.
+// (An earlier version used a CSS `offset-path` with raw pixel coordinates,
+// which only lined up with the visible SVG at the one width it was designed
+// for — on a narrower phone the container shrank but the dots kept moving
+// across the original 600px-wide path, so they drifted off the lines and
+// the stray real pixels past ~600 wide could even push the page's scroll width.)
 function FlowDiagram() {
-  const hub = { x: 300, y: 180 }
-  const sourceYs = [40, 110, 180, 250, 320]
-  const destYs = [100, 180, 260]
+  const reduceMotion = useReducedMotion()
+  const hub = { x: 260, y: 200 }
+  const gst = { x: 460, y: 200 }
+  const destX = 660
+  const sourceX = 120
+  const sourceYs = [40, 120, 200, 280, 360]
+  const destYs = [130, 200, 270]
 
-  const sourcePaths = sourceYs.map((y) => `M 130 ${y} L ${hub.x} ${hub.y}`)
-  const destPaths = destYs.map((y) => `M ${hub.x} ${hub.y} L 470 ${y}`)
+  const sourcePaths = sourceYs.map((y) => `M ${sourceX} ${y} L ${hub.x} ${hub.y}`)
+  // Routed through the GST node so the "compliant record" step is visible
+  // on the line itself, not just implied.
+  const destPaths = destYs.map((y) => `M ${hub.x} ${hub.y} L ${gst.x} ${gst.y} L ${destX} ${y}`)
 
   return (
-    <div className="relative mx-auto w-full max-w-md" style={{ aspectRatio: '600 / 360' }}>
-      <svg viewBox="0 0 600 360" className="absolute inset-0 h-full w-full" fill="none">
+    <div className="relative mx-auto w-full max-w-lg" style={{ aspectRatio: '760 / 400' }}>
+      <svg viewBox="0 0 760 400" className="absolute inset-0 h-full w-full" fill="none">
         {sourcePaths.map((d, i) => (
           <path key={`s${i}`} d={d} stroke="#2E3032" strokeWidth="1.5" strokeDasharray="4 4" />
         ))}
         {destPaths.map((d, i) => (
-          <path key={`d${i}`} d={d} stroke="#2E3032" strokeWidth="1.5" strokeDasharray="4 4" />
+          <path key={`d${i}`} id={`trovar-dest-path-${i}`} d={d} stroke="#2E3032" strokeWidth="1.5" strokeDasharray="4 4" />
         ))}
-      </svg>
 
-      {/* Animated dots flowing in along each source path, and out along each destination path */}
-      {sourcePaths.map((d, i) => (
-        <span
-          key={`sd${i}`}
-          className="trovar-flow-dot"
-          style={{ offsetPath: `path('${d}')`, animationDelay: `${i * 0.4}s` }}
-        />
-      ))}
-      {destPaths.map((d, i) => (
-        <span
-          key={`dd${i}`}
-          className="trovar-flow-dot"
-          style={{ offsetPath: `path('${d}')`, animationDelay: `${1.2 + i * 0.4}s` }}
-        />
-      ))}
+        {!reduceMotion && (
+          <>
+            {sourcePaths.map((d, i) => (
+              <circle key={`sdot${i}`} r="4" fill="#B6FF3B">
+                <animateMotion dur="2.4s" begin={`${i * 0.4}s`} repeatCount="indefinite" path={d} />
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.92;1" dur="2.4s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
+              </circle>
+            ))}
+            {destPaths.map((d, i) => (
+              <circle key={`ddot${i}`} r="4" fill="#B6FF3B">
+                <animateMotion dur="2.4s" begin={`${1.4 + i * 0.4}s`} repeatCount="indefinite" path={d} />
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.92;1" dur="2.4s" begin={`${1.4 + i * 0.4}s`} repeatCount="indefinite" />
+              </circle>
+            ))}
+          </>
+        )}
+      </svg>
 
       {/* Source chips — icon-only below `sm` so the longest label (Google Ads)
           can't clip past the viewport edge on narrow phones */}
@@ -475,7 +488,7 @@ function FlowDiagram() {
         <div
           key={s.name}
           className="absolute flex -translate-x-full -translate-y-1/2 items-center gap-1.5 rounded-lg border border-[#2E3032] bg-[#1F2122] p-1 sm:py-1 sm:pl-1.5 sm:pr-2.5"
-          style={{ left: `${(130 / 600) * 100}%`, top: `${(sourceYs[i] / 360) * 100}%` }}
+          style={{ left: `${(sourceX / 760) * 100}%`, top: `${(sourceYs[i] / 400) * 100}%` }}
         >
           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -488,9 +501,20 @@ function FlowDiagram() {
       {/* Hub */}
       <div
         className="absolute flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl bg-[#F5F5F7] shadow-lg"
-        style={{ left: `${(hub.x / 600) * 100}%`, top: `${(hub.y / 360) * 100}%` }}
+        style={{ left: `${(hub.x / 760) * 100}%`, top: `${(hub.y / 400) * 100}%` }}
       >
         <TrovarMark size={28} dark />
+      </div>
+
+      {/* GST-compliant record waypoint, between the hub and the destination apps */}
+      <div
+        className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+        style={{ left: `${(gst.x / 760) * 100}%`, top: `${(gst.y / 400) * 100}%` }}
+      >
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#B6FF3B]/30 bg-[#B6FF3B]/10">
+          <Shield className="h-5 w-5 text-[#B6FF3B]" />
+        </div>
+        <span className="whitespace-nowrap text-[9px] font-medium uppercase tracking-wide text-[#8A8D8F]">GST record</span>
       </div>
 
       {/* Destination chips — icon-only below `sm`, same reasoning as source chips */}
@@ -498,7 +522,7 @@ function FlowDiagram() {
         <div
           key={d.name}
           className="absolute flex translate-x-0 -translate-y-1/2 items-center gap-1.5 rounded-lg border border-[#2E3032] bg-[#1F2122] p-1 sm:py-1 sm:pl-1.5 sm:pr-2.5"
-          style={{ left: `${(470 / 600) * 100}%`, top: `${(destYs[i] / 360) * 100}%` }}
+          style={{ left: `${(destX / 760) * 100}%`, top: `${(destYs[i] / 400) * 100}%` }}
         >
           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -507,39 +531,6 @@ function FlowDiagram() {
           <span className="hidden text-[10px] whitespace-nowrap text-[#8A8D8F] sm:inline">{d.name}</span>
         </div>
       ))}
-
-      <style jsx>{`
-        .trovar-flow-dot {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 6px;
-          height: 6px;
-          border-radius: 9999px;
-          background: #b6ff3b;
-          box-shadow: 0 0 6px 1px rgba(182, 255, 59, 0.6);
-          opacity: 0;
-        }
-        /* offset-path/offset-distance aren't supported on iOS Safari < 16 —
-           gate the whole animation behind a feature query so unsupported
-           browsers just keep the dots invisible instead of flashing them,
-           unpositioned, at the top-left corner. */
-        @supports (offset-path: path('M0 0')) {
-          .trovar-flow-dot {
-            offset-rotate: 0deg;
-            animation: trovar-flow 2.4s linear infinite;
-          }
-        }
-        @keyframes trovar-flow {
-          0% { offset-distance: 0%; opacity: 0; }
-          8% { opacity: 1; }
-          92% { opacity: 1; }
-          100% { offset-distance: 100%; opacity: 0; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .trovar-flow-dot { animation: none; opacity: 0; }
-        }
-      `}</style>
     </div>
   )
 }
