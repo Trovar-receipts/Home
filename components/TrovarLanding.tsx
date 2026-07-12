@@ -195,7 +195,7 @@ function Hero() {
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <AnimatedGroup>
           {/* Headline */}
-          <h1 className="trovar-shimmer relative text-5xl font-light leading-[1.1] tracking-tight md:text-7xl">
+          <h1 className="text-4xl font-light leading-[1.1] tracking-tight text-[#F5F5F7] sm:text-5xl md:text-7xl">
             The expense engine<br />
             for accounting firms.
           </h1>
@@ -230,31 +230,6 @@ function Hero() {
           </div>
           <p className="mt-3 text-xs text-[#4A4D4F]">First client free, forever · NZ &amp; AU</p>
         </AnimatedGroup>
-
-        <style jsx>{`
-          .trovar-shimmer {
-            background: linear-gradient(110deg, #f5f5f7 30%, #ffffff 42%, #d9ffb0 50%, #ffffff 58%, #f5f5f7 70%);
-            background-size: 250% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 0 18px rgba(182, 255, 59, 0));
-            animation: trovar-shimmer-sweep 6s ease-in-out infinite, trovar-shimmer-glow 6s ease-in-out infinite;
-          }
-          @keyframes trovar-shimmer-sweep {
-            0% { background-position: 220% 0; }
-            45%, 55% { background-position: 0% 0; }
-            100% { background-position: -220% 0; }
-          }
-          @keyframes trovar-shimmer-glow {
-            0%, 40% { filter: drop-shadow(0 0 0px rgba(182, 255, 59, 0)); }
-            50% { filter: drop-shadow(0 0 22px rgba(182, 255, 59, 0.25)); }
-            60%, 100% { filter: drop-shadow(0 0 0px rgba(182, 255, 59, 0)); }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .trovar-shimmer { animation: none; background: none; color: #f5f5f7; filter: none; }
-          }
-        `}</style>
 
         {/* Demo video placeholder */}
         <FadeIn delay={0.15} className="mt-16">
