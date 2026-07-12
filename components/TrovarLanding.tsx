@@ -196,20 +196,22 @@ function Hero() {
         <AnimatedGroup>
           {/* Headline */}
           <h1 className="text-5xl font-light leading-[1.1] tracking-tight text-[#F5F5F7] md:text-7xl">
-            Stop chasing<br />
-            <span className="text-[#8A8D8F]">your clients&apos;</span><br />
-            invoices.
+            The expense engine<br />
+            <span className="text-[#8A8D8F]">for accounting</span><br />
+            firms.
           </h1>
 
           {/* Sub: the closed loop */}
           <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
-            Every invoice. However it arrives.{' '}<br className="hidden sm:block" />
-            <span className="text-[#B6FF3B]">API, email, or by hand. All in one place.</span>
+            Trovar automates the whole cycle{' '}<br className="hidden sm:block" />
+            <span className="text-[#B6FF3B]">collect it, match it, prove it&apos;s reconciled.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
-            Suppliers that email their invoices file themselves, automatically. Meta and Google Ads take
-            a 60-second monthly step, no logins shared, no accounts flagged. Anything else, forward it by
-            email or add it by hand. It all lands in one tidy, IRD-ready place. No portals. No chasing. No 2FA headaches.
+            Whatever the platform, there&apos;s a way to capture it: email it through, fetch it by API, or
+            upload it manually when nothing else fits. Unlike tools that log in with headless browsers and
+            risk tripping 2FA or getting an ad account flagged, Trovar never logs in at all. Every charge is
+            then matched against the bank feed automatically. The control sits with you, not your client, so
+            the hard work of chasing invoices is gone for good.
           </p>
 
           {/* CTA */}
@@ -285,7 +287,7 @@ function ClosedLoop() {
           </h2>
           <p className="mt-5 max-w-md text-[#8A8D8F]">
             Every card transaction your client&apos;s bank feed reports gets matched against a captured
-            invoice, automatically. No more spreadsheets of red dots, no more chasing an accountant to
+            invoice, automatically. No more spreadsheets of red dots, no more chasing your client to
             confirm what&apos;s missing. You see it, per client, in real time.
           </p>
           <ul className="mt-6 space-y-2.5">
@@ -394,21 +396,153 @@ function PlatformStrip() {
 // ─── How it works ────────────────────────────────────────────────────────────
 const steps = [
   {
-    number: '01',
-    title: 'Set up once per client',
-    description: 'Give each client a private Trovar email address and, for ad platforms, a billing contact to add. No passwords shared, no logins handed over, ever.',
+    icon: Mail,
+    label: 'COLLECT',
+    title: 'We collect',
+    description: 'Trovar automatically gathers receipts and invoices from inboxes, connected apps and spending platforms.',
   },
   {
-    number: '02',
-    title: 'Invoices find their way in',
-    description: 'Suppliers that email invoices file themselves. Meta and Google Ads take a 60-second monthly upload of the client\'s own transaction file, straight from the platform, no login required. Everything else, forward it or add it by hand.',
+    icon: RefreshCw,
+    label: 'MATCH',
+    title: 'We match',
+    description: 'Trovar checks every charge on your client\'s Airwallex feed against what\'s been collected, so you know exactly what\'s missing, not just what\'s been filed. It\'s the fully closed loop, and nobody\'s done it before Trovar.',
   },
   {
-    number: '03',
-    title: 'Captured & audit-ready',
-    description: 'Every invoice has its supplier, date, GST and amount captured, ready to reconcile against the bank feed. Export any client, any period, in one click. Direct Xero push is coming soon.',
+    icon: ArrowRight,
+    label: 'DELIVER',
+    title: 'We deliver',
+    description: 'Everything is organised and coded, ready for your accounting software, reports and tax time.',
   },
 ]
+
+// Sources feeding in, and the accounting platforms it all comes out into.
+// Kept separate from ad-network billing sources — this is about the shape of
+// the flow (many in, one hub, many out), not a claim about every integration.
+const flowSources = [
+  { name: 'Email', domain: 'gmail.com' },
+  { name: 'Meta', domain: 'facebook.com' },
+  { name: 'Google Ads', domain: 'google.com' },
+  { name: 'Bank feed', domain: 'airwallex.com' },
+  { name: 'Shopify', domain: 'shopify.com' },
+]
+const flowDestinations = [
+  { name: 'Xero', domain: 'xero.com' },
+  { name: 'MYOB', domain: 'myob.com' },
+  { name: 'QuickBooks', domain: 'quickbooks.intuit.com' },
+]
+
+// Straight-line paths in a 600x360 coordinate space, shared between the SVG
+// (for the visible dashed line) and the CSS motion path (for the animated
+// dot) so the two stay perfectly in sync without duplicating geometry logic.
+function FlowDiagram() {
+  const hub = { x: 300, y: 180 }
+  const sourceYs = [40, 110, 180, 250, 320]
+  const destYs = [100, 180, 260]
+
+  const sourcePaths = sourceYs.map((y) => `M 130 ${y} L ${hub.x} ${hub.y}`)
+  const destPaths = destYs.map((y) => `M ${hub.x} ${hub.y} L 470 ${y}`)
+
+  return (
+    <div className="relative mx-auto w-full max-w-md" style={{ aspectRatio: '600 / 360' }}>
+      <svg viewBox="0 0 600 360" className="absolute inset-0 h-full w-full" fill="none">
+        {sourcePaths.map((d, i) => (
+          <path key={`s${i}`} d={d} stroke="#2E3032" strokeWidth="1.5" strokeDasharray="4 4" />
+        ))}
+        {destPaths.map((d, i) => (
+          <path key={`d${i}`} d={d} stroke="#2E3032" strokeWidth="1.5" strokeDasharray="4 4" />
+        ))}
+      </svg>
+
+      {/* Animated dots flowing in along each source path, and out along each destination path */}
+      {sourcePaths.map((d, i) => (
+        <span
+          key={`sd${i}`}
+          className="trovar-flow-dot"
+          style={{ offsetPath: `path('${d}')`, animationDelay: `${i * 0.4}s` }}
+        />
+      ))}
+      {destPaths.map((d, i) => (
+        <span
+          key={`dd${i}`}
+          className="trovar-flow-dot"
+          style={{ offsetPath: `path('${d}')`, animationDelay: `${1.2 + i * 0.4}s` }}
+        />
+      ))}
+
+      {/* Source chips — icon-only below `sm` so the longest label (Google Ads)
+          can't clip past the viewport edge on narrow phones */}
+      {flowSources.map((s, i) => (
+        <div
+          key={s.name}
+          className="absolute flex -translate-x-full -translate-y-1/2 items-center gap-1.5 rounded-lg border border-[#2E3032] bg-[#1F2122] p-1 sm:py-1 sm:pl-1.5 sm:pr-2.5"
+          style={{ left: `${(130 / 600) * 100}%`, top: `${(sourceYs[i] / 360) * 100}%` }}
+        >
+          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`https://icons.duckduckgo.com/ip3/${s.domain}.ico`} alt="" width={12} height={12} className="h-3 w-3" />
+          </span>
+          <span className="hidden text-[10px] whitespace-nowrap text-[#8A8D8F] sm:inline">{s.name}</span>
+        </div>
+      ))}
+
+      {/* Hub */}
+      <div
+        className="absolute flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl bg-[#F5F5F7] shadow-lg"
+        style={{ left: `${(hub.x / 600) * 100}%`, top: `${(hub.y / 360) * 100}%` }}
+      >
+        <TrovarMark size={28} dark />
+      </div>
+
+      {/* Destination chips — icon-only below `sm`, same reasoning as source chips */}
+      {flowDestinations.map((d, i) => (
+        <div
+          key={d.name}
+          className="absolute flex translate-x-0 -translate-y-1/2 items-center gap-1.5 rounded-lg border border-[#2E3032] bg-[#1F2122] p-1 sm:py-1 sm:pl-1.5 sm:pr-2.5"
+          style={{ left: `${(470 / 600) * 100}%`, top: `${(destYs[i] / 360) * 100}%` }}
+        >
+          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-white">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`https://icons.duckduckgo.com/ip3/${d.domain}.ico`} alt="" width={12} height={12} className="h-3 w-3" />
+          </span>
+          <span className="hidden text-[10px] whitespace-nowrap text-[#8A8D8F] sm:inline">{d.name}</span>
+        </div>
+      ))}
+
+      <style jsx>{`
+        .trovar-flow-dot {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 6px;
+          height: 6px;
+          border-radius: 9999px;
+          background: #b6ff3b;
+          box-shadow: 0 0 6px 1px rgba(182, 255, 59, 0.6);
+          opacity: 0;
+        }
+        /* offset-path/offset-distance aren't supported on iOS Safari < 16 —
+           gate the whole animation behind a feature query so unsupported
+           browsers just keep the dots invisible instead of flashing them,
+           unpositioned, at the top-left corner. */
+        @supports (offset-path: path('M0 0')) {
+          .trovar-flow-dot {
+            offset-rotate: 0deg;
+            animation: trovar-flow 2.4s linear infinite;
+          }
+        }
+        @keyframes trovar-flow {
+          0% { offset-distance: 0%; opacity: 0; }
+          8% { opacity: 1; }
+          92% { opacity: 1; }
+          100% { offset-distance: 100%; opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .trovar-flow-dot { animation: none; opacity: 0; }
+        }
+      `}</style>
+    </div>
+  )
+}
 
 function HowItWorks() {
   return (
@@ -418,22 +552,32 @@ function HowItWorks() {
           <div className="mb-16 text-center">
             <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">How it works</p>
             <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">
-              Three steps.<br />
-              <span className="text-[#8A8D8F]">Zero chasing.</span>
+              Expense automation<br />
+              <span className="text-[#8A8D8F]">on autopilot.</span>
             </h2>
           </div>
         </FadeIn>
 
-        <div className="grid gap-px md:grid-cols-3">
-          {steps.map((step, i) => (
-            <FadeIn key={i} delay={i * 0.07}>
-              <div className="relative border border-[#2E3032] bg-[#000D0F] p-8 first:rounded-l-2xl last:rounded-r-2xl md:first:rounded-l-2xl md:last:rounded-r-2xl">
-                <span className="text-5xl font-light text-[#2E3032]">{step.number}</span>
-                <h3 className="mt-4 text-lg font-medium text-[#F5F5F7]">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#8A8D8F]">{step.description}</p>
-              </div>
-            </FadeIn>
-          ))}
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          <FadeIn>
+            <div className="space-y-8">
+              {steps.map((step, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#2E3032] bg-[#1F2122]">
+                    <step.icon className="h-4 w-4 text-[#B6FF3B]" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-medium text-[#F5F5F7]">{step.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-[#8A8D8F]">{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <FlowDiagram />
+          </FadeIn>
         </div>
       </div>
     </section>
@@ -455,12 +599,12 @@ const features = [
   {
     icon: Shield,
     title: 'IRD-compliant records',
-    description: 'Every invoice is structured as valid NZ taxable supply information. GST calculated correctly, including overseas merchants.',
+    description: 'Every invoice is structured as valid NZ taxable supply information, with GST calculated correctly, even on overseas merchants. Built for NZ, not adapted for it.',
   },
   {
     icon: BarChart3,
     title: 'Accountant dashboard',
-    description: 'One view of every client\'s invoices: collected, pending, what needs attention. No more inbox archaeology.',
+    description: 'One view of every client\'s invoices: collected, pending, what needs attention.',
   },
   {
     icon: Users,
@@ -483,8 +627,8 @@ function Features() {
           <div className="mb-16 text-center">
             <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">Why Trovar</p>
             <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">
-              Everything your clients spend on,<br />
-              <span className="text-[#8A8D8F]">collected for you.</span>
+              Every client expense,<br />
+              <span className="text-[#8A8D8F]">automated end to end.</span>
             </h2>
           </div>
         </FadeIn>
@@ -519,11 +663,11 @@ function Pricing() {
   const tiers = [
     {
       name: 'Practice',
-      price: '$29',
-      desc: 'Per client / month · first client free, forever',
+      price: '$59',
+      desc: 'Per client / month · try it with your first client free.',
       features: [
-        'Connects to all your clients\' paid subscriptions',
-        'Meta, Google, Adobe, Shopify & many more',
+        'Connects to your clients\' paid subscriptions',
+        'Meta & many more',
         'Email-in & manual invoice capture',
         'IRD-compliant taxable supply records',
         'Practice dashboard & one-click exports',
@@ -664,7 +808,7 @@ function VsHubdoc() {
 const faqs = [
   {
     q: 'How is Trovar different from Hubdoc?',
-    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta or Google updates their security. Trovar also goes a step further than Hubdoc ever did: it checks every collected invoice against your client\'s bank feed, so you know it\'s reconciled, not just filed.',
+    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta updates their security. Trovar also goes a step further than Hubdoc ever did: it checks every collected invoice against your client\'s bank feed, so you know it\'s reconciled, not just filed.',
   },
   {
     q: 'How is Trovar different from Dext?',
@@ -675,12 +819,24 @@ const faqs = [
     a: 'For Meta Ads, Tailride uses a browser extension that has to ride your client\'s live, logged-in session, so someone still has to open the account and click through it every time. Trovar pulls Meta\'s billing charges directly via API. Once your practice is connected, you pull a client\'s charges yourself, whenever suits you, without ever asking them to log into anything. The task stays with you, not your client, which means one less thing for them to forget and one less chance of the wrong file being sent. Tailride is also a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, not one company\'s inbox, including checking every invoice against the client\'s bank feed to prove it\'s reconciled.',
   },
   {
+    q: 'How is Trovar different from Vic.ai?',
+    a: 'Vic.ai is AI-powered invoice processing built for larger finance teams that already have documents flowing into an AP or procurement system, and it\'s priced for that scale. Trovar solves the step before that: it\'s built for NZ & AU accounting practices managing many small-to-mid client businesses, and it collects the invoices in the first place, without ever logging in on a client\'s behalf, then matches every charge to the bank feed automatically. Vic.ai automates processing once documents already exist in your system; Trovar automates getting them there, and proves they reconcile.',
+  },
+  {
+    q: 'How is Trovar different from Ramp?',
+    a: 'Ramp is a corporate card and spend-management platform, most useful once a business runs its spending through Ramp\'s own card. Trovar works regardless of which bank or card your client already uses, Airwallex, ASB, ANZ or anything else, and is focused on the accountant\'s problem specifically: collecting every supplier invoice and proving it reconciles against the bank feed, without asking your client to switch banking providers.',
+  },
+  {
+    q: 'Why did you build Trovar?',
+    a: 'We kept watching accountants lose real time every month to the same manual grind: chasing clients for missing receipts, then matching each one against the bank statement line by line. Clients don\'t enjoy the chase any more than accountants enjoy doing it, it\'s necessary work, but it doesn\'t scale and it isn\'t what anyone trained to do. As a rough, back-of-envelope estimate: New Zealand has tens of thousands of businesses that rely on an external accountant or bookkeeper. If each one costs just 2-3 hours of manual reconciliation admin a month at typical bookkeeping rates, that alone adds up to well over $100 million a year of billable time nationally spent on paperwork instead of advice (not to mention the client\'s own time wasted digging through folders and inboxes for receipts). Trovar exists to take that admin off the desk entirely: collect it, match it, prove it\'s reconciled, automatically, so accountants can spend that time on the work that actually grows their clients\' businesses.',
+  },
+  {
     q: 'What does the "reconciled %" on my dashboard mean?',
     a: 'Trovar connects to your client\'s Airwallex card feed and checks every charge against the invoices you\'ve already collected. Instead of a spreadsheet of red dots, or chasing your accountant to confirm what\'s missing, you see a live percentage per client, and exactly which transactions still need a receipt. It\'s the difference between collecting invoices and proving they actually match what was spent, and it\'s not something Hubdoc, Dext or Tailride do.',
   },
   {
     q: 'Which platforms does Trovar connect to?',
-    a: 'Trovar connects to your clients\' paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. Suppliers that email invoices are captured automatically; ad platforms take a short monthly step; and for anything off-platform, you can forward an invoice by email or add it manually, so nothing slips through.',
+    a: 'Where it\'s not practical for you to log in and grab the receipt yourself, Trovar connects directly to your clients\' paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, AWS, Slack, Stripe and more, with new connections added regularly. Suppliers that email invoices are captured automatically; ad platforms take a short monthly step; and for anything off-platform, you can forward an invoice by email or add it manually, so nothing slips through.',
   },
   {
     q: 'Can I forward invoices by email?',
@@ -688,7 +844,7 @@ const faqs = [
   },
   {
     q: 'Does it work with Xero?',
-    a: 'Direct push to Xero, correctly coded with GST split, is coming soon, and we\'re a Xero App Partner. Today, every invoice is captured, GST-calculated and one-click exportable into your workflow.',
+    a: 'Direct push to Xero, correctly coded with GST split, is coming soon. Today, every invoice is captured, GST-calculated and exportable into your workflow.',
   },
   {
     q: 'Is the data IRD compliant?',
@@ -696,11 +852,11 @@ const faqs = [
   },
   {
     q: 'How does pricing work for accounting firms?',
-    a: 'It\'s $29 NZD per client account per month, and your first client is free, forever, with no card required. Add more clients for $29 each whenever you\'re ready; remove one and it drops off. Most firms fold this into their bookkeeping fee and make a healthy margin.',
+    a: 'It\'s $59 NZD per client account per month, and your first client is free, forever, with no card required. Add more clients for $59 each whenever you\'re ready; remove one and it drops off. Most firms fold this into their bookkeeping fee and make a healthy margin.',
   },
   {
     q: 'Do I need a card to start?',
-    a: 'No card needed to start. Your first client is free forever, so you can run Trovar on a real client at no cost for as long as you like. Add more for $29/month each whenever you\'re ready.',
+    a: 'No card needed to start. Your first client is free forever, so you can run Trovar on a real client at no cost for as long as you like. Add more for $59/month each whenever you\'re ready.',
   },
 ]
 
@@ -752,7 +908,7 @@ function FoundersNote() {
       <div className="mx-auto max-w-2xl px-6 text-center">
         <FadeIn>
           <h2 className="text-2xl font-light leading-snug text-[#F5F5F7] md:text-3xl">
-            You&apos;re supported by the founders, not a call centre
+            You&apos;re supported by NZ based founders, not a call centre overseas.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[#8A8D8F]">
             Trovar is built by NZ-based technical founders who genuinely care about your
@@ -777,11 +933,11 @@ function WaitlistCTA() {
             </div>
           </div>
           <h2 className="mt-6 text-3xl font-light text-[#F5F5F7] md:text-5xl">
-            Ready to stop chasing<br />
-            <span className="text-[#8A8D8F]">invoices?</span>
+            Ready to automate<br />
+            <span className="text-[#8A8D8F]">your clients&apos; expense admin?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
-            Join NZ accounting firms automating their invoice collection. Your first client is free, forever.
+            Join NZ accounting firms automating their expense admin. Your first client is free, forever.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
@@ -817,7 +973,7 @@ function Footer() {
               </div>
               <TrovarWordmark className="h-5 w-auto" />
             </a>
-            <p className="mt-4 text-xs leading-relaxed text-[#4A4D4F]">Automated supplier-invoice collection for modern accountants.</p>
+            <p className="mt-4 text-xs leading-relaxed text-[#4A4D4F]">The expense automation platform for modern accountants.</p>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-[#4A4D4F]">

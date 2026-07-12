@@ -13,18 +13,21 @@ const geistMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Trovar: Invoice Collection for Accountants | Hubdoc, Dext & Tailride Alternative',
+  title: 'Trovar: Expense Automation for Accounting Firms',
   description:
-    'Trovar collects every supplier invoice for your clients without ever logging in on their behalf. Suppliers that email invoices file themselves, Meta and Google Ads take a 60-second monthly step, and everything else can be forwarded or added by hand. IRD-compliant GST records, built for NZ & AU accounting firms. First client free, forever.',
+    'Trovar automates the collecting, matching and reconciling of every client expense, so you can stop chasing invoices and start trusting the numbers. It builds IRD-compliant GST records as it goes, saving you hours and sparing your clients the chase for receipts.',
   keywords: [
-    'invoice collection for accountants',
+    'expense automation platform',
+    'expense automation for accountants',
+    'operating system for business expenses',
     'Hubdoc alternative',
     'Dext alternative',
     'Tailride alternative',
+    'Vic.ai alternative',
+    'Ramp alternative',
     'Receipt Bank alternative',
-    'invoice collection software NZ',
     'invoice automation for accountants',
-    'receipt automation NZ',
+    'expense reconciliation software NZ',
     'accounting software NZ',
     'Xero invoice automation',
     'Meta ads invoices',
@@ -46,24 +49,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_NZ',
     url: 'https://trovar.co.nz',
-    title: 'Trovar: Smart Receipt Collection for Modern Accountants',
+    title: 'Trovar: Expense Automation Platform for Modern Accountants',
     description:
-      'Automatically collect invoices from Meta, Google, Adobe and Shopify. IRD compliant records pushed to Xero. Built for NZ and AU accounting firms.',
+      'Automates collecting, matching and reconciling every client expense, from Meta, Google, Adobe, Shopify and more. Built for NZ and AU accounting firms who want to deliver a better experience for their clients.',
     siteName: 'Trovar',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Trovar: Smart Receipt Collection',
+        alt: 'Trovar: Expense Automation Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trovar: Smart Receipt Collection for Modern Accountants',
+    title: 'Trovar: Expense Automation Platform for Modern Accountants',
     description:
-      'Automatically collect invoices from Meta, Google, Adobe and Shopify. IRD compliant records pushed to Xero.',
+      'Automates collecting, matching and reconciling every client expense, from Meta, Google, Adobe, Shopify and more. IRD compliant records pushed to Xero.',
     images: ['/og-image.png'],
   },
   robots: {
@@ -110,26 +113,26 @@ export default function RootLayout({
                   email: 'hello@trovar.co.nz',
                   areaServed: ['New Zealand', 'Australia'],
                   description:
-                    'Automatic supplier-invoice collection for accounting firms in New Zealand and Australia.',
+                    'The expense automation platform for accounting firms in New Zealand and Australia: it automates collecting, matching and reconciling every client expense.',
                 },
                 {
                   '@type': 'SoftwareApplication',
                   '@id': 'https://trovar.co.nz/#software',
                   name: 'Trovar',
                   description:
-                    'Trovar collects every supplier invoice for your clients without logging in on their behalf: automatic capture for suppliers that email invoices, a short monthly step for Meta and Google Ads, and email or manual capture for everything else. An alternative to Hubdoc, Dext and Tailride, with IRD-compliant GST records for NZ & AU accountants.',
+                    'Trovar is the operating system for business expenses: it automatically collects every supplier invoice without logging in on a client\'s behalf, matches every charge against the bank feed, and proves it reconciles. An alternative to Hubdoc, Dext, Tailride, Vic.ai and Ramp, with IRD-compliant GST records for NZ & AU accountants.',
                   url: 'https://trovar.co.nz',
                   applicationCategory: 'BusinessApplication',
                   operatingSystem: 'Web',
                   publisher: { '@id': 'https://trovar.co.nz/#organization' },
                   offers: {
                     '@type': 'Offer',
-                    price: '29',
+                    price: '59',
                     priceCurrency: 'NZD',
-                    description: 'First client free forever, then $29 NZD per client per month.',
+                    description: 'First client free forever, then $59 NZD per client per month.',
                     priceSpecification: {
                       '@type': 'UnitPriceSpecification',
-                      price: '29',
+                      price: '59',
                       priceCurrency: 'NZD',
                       unitText: 'per client per month',
                     },
@@ -160,7 +163,7 @@ export default function RootLayout({
                       name: 'How is Trovar different from Hubdoc?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Hubdoc stores your client’s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections to access billing data directly. It never stores passwords and won’t break when Meta or Google update their security.',
+                        text: 'Hubdoc stores your client’s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections to access billing data directly. It never stores passwords and won’t break when Meta updates their security.',
                       },
                     },
                     {
@@ -181,6 +184,30 @@ export default function RootLayout({
                     },
                     {
                       '@type': 'Question',
+                      name: 'How is Trovar different from Vic.ai?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Vic.ai is AI-powered invoice processing built for larger finance teams that already have documents flowing into an AP or procurement system. Trovar is built for NZ & AU accounting practices managing many client businesses: it collects the invoices in the first place, without logging in on a client’s behalf, then matches every charge to the bank feed automatically. Vic.ai automates processing once documents already exist in your system; Trovar automates getting them there, and proves they reconcile.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'How is Trovar different from Ramp?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Ramp is a corporate card and spend-management platform, most useful once a business runs its spending through Ramp’s own card. Trovar works regardless of which bank or card a client already uses, and is focused on the accountant’s problem: collecting every supplier invoice and proving it reconciles against the bank feed, without asking the client to switch banking providers.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'Why did you build Trovar?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Accountants lose real time every month chasing clients for missing receipts, then manually matching each one against the bank statement. Clients don’t enjoy the chase any more than accountants enjoy doing it. As a rough estimate, New Zealand has tens of thousands of businesses that rely on an external accountant or bookkeeper; at just 2-3 hours of manual reconciliation admin per client per month at typical bookkeeping rates, that is well over $100 million a year of billable time nationally spent on paperwork instead of advice, not to mention the client’s own time wasted digging through folders and inboxes for receipts. Trovar exists to automate that admin away entirely: collect it, match it, prove it is reconciled.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
                       name: 'What does the reconciled percentage on the Trovar dashboard mean?',
                       acceptedAnswer: {
                         '@type': 'Answer',
@@ -192,7 +219,7 @@ export default function RootLayout({
                       name: 'Which platforms does Trovar connect to?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Trovar connects to your clients’ paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. Suppliers that email invoices are captured automatically, ad platforms take a short monthly step, and for anything off-platform you can forward an invoice by email or add it manually.',
+                        text: 'Where it’s not practical to log in and grab the receipt yourself, Trovar connects directly to your clients’ paid subscriptions, the likes of Meta Ads, Google Ads, Adobe, Shopify, Microsoft 365, Stripe and more, with new connections added regularly. Suppliers that email invoices are captured automatically, ad platforms take a short monthly step, and for anything off-platform you can forward an invoice by email or add it manually.',
                       },
                     },
                     {
@@ -200,7 +227,7 @@ export default function RootLayout({
                       name: 'Does Trovar work with Xero?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Direct push to Xero, correctly coded with the GST split, is coming soon, and Trovar is a Xero App Partner. Today every invoice is captured, GST-calculated and one-click exportable into your workflow.',
+                        text: 'Direct push to Xero, correctly coded with the GST split, is coming soon. Today every invoice is captured, GST-calculated and exportable into your workflow.',
                       },
                     },
                     {
@@ -216,7 +243,7 @@ export default function RootLayout({
                       name: 'How much does Trovar cost?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Your first client is free, forever, with no card required. After that it is $29 NZD per client account per month. Add or remove clients any time. Most firms fold this into their bookkeeping fee.',
+                        text: 'Your first client is free, forever, with no card required. After that it is $59 NZD per client account per month. Add or remove clients any time. Most firms fold this into their bookkeeping fee.',
                       },
                     },
                   ],
