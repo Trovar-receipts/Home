@@ -202,8 +202,8 @@ function Hero() {
 
           {/* Sub: the closed loop */}
           <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
-            Trovar automates the whole cycle{' '}<br className="hidden sm:block" />
-            <span className="text-[#B6FF3B]">collect it, match it, prove it&apos;s reconciled.</span>
+            Trovar automates the whole cycle.{' '}<br className="hidden sm:block" />
+            <span className="text-[#B6FF3B]">Collect it, match it, prove it&apos;s reconciled.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
             Whatever the platform, there&apos;s a way to capture it: email it through, fetch it by API, or
@@ -279,24 +279,15 @@ function ClosedLoop() {
     <section id="reconciliation" className="border-y border-[#2E3032] py-20 md:py-28 scroll-mt-24" style={{ backgroundColor: '#050C0D' }}>
       <div className="mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2">
         <FadeIn>
-          <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">The closed loop</p>
           <h2 className="text-3xl font-light leading-tight text-[#F5F5F7] md:text-4xl">
-            Other tools collect invoices.<br />
-            <span className="text-[#8A8D8F]">Trovar proves they match.</span>
+            Trovar automatically matches<br />
+            <span className="text-[#8A8D8F]">transactions with receipts.</span>
           </h2>
           <p className="mt-5 max-w-md text-[#8A8D8F]">
-            Every card transaction your client&apos;s bank feed reports gets matched against a captured
-            invoice, automatically. No more spreadsheets of red dots, no more chasing your client to
-            confirm what&apos;s missing. You see it, per client, in real time.
+            Airwallex transaction data is passed straight to Trovar in real time and matched against every
+            captured invoice automatically. No more chasing your client to confirm what&apos;s missing, you
+            see it as it happens, and can pull what you need yourself.
           </p>
-          <ul className="mt-6 space-y-2.5">
-            {['Bank feed matched to captured invoices, line by line', 'A live reconciled % per client, not a guess', 'Exactly what’s still missing, drilled down'].map((f) => (
-              <li key={f} className="flex items-start gap-2.5 text-sm text-[#C9CCCE]">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B6FF3B]" />
-                {f}
-              </li>
-            ))}
-          </ul>
           <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-3 py-1.5 text-[11px] text-[#8A8D8F]">
             Powered by
             {/* eslint-disable-next-line @next/next/no-img-element */}
