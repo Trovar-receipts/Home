@@ -658,7 +658,7 @@ function Pricing() {
       highlight: true,
     },
     {
-      name: 'Practice',
+      name: 'Paid Plan',
       price: '$59',
       desc: 'Per client / month, after your first client',
       badge: null,
