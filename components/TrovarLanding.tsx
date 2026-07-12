@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, useReducedMotion, Variants } from 'framer-motion'
-import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play, Receipt } from 'lucide-react'
+import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // ─── Brand Tokens ────────────────────────────────────────────────────────────
@@ -177,46 +177,6 @@ function Header() {
   )
 }
 
-// Small receipt icons drifting slowly behind the headline — same visual
-// language as the "how it works" flow diagram below, dialed down to an
-// ambient background effect rather than a literal diagram.
-const ambientReceipts = [
-  { top: '4%', left: '8%', size: 16, duration: 9, delay: 0 },
-  { top: '68%', left: '4%', size: 20, duration: 11, delay: 1.2 },
-  { top: '14%', left: '88%', size: 18, duration: 10, delay: 0.6 },
-  { top: '72%', left: '92%', size: 14, duration: 8, delay: 2 },
-  { top: '40%', left: '2%', size: 14, duration: 12, delay: 0.9 },
-  { top: '46%', left: '95%', size: 16, duration: 10.5, delay: 1.6 },
-]
-
-function HeroAmbient() {
-  const reduceMotion = useReducedMotion()
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {ambientReceipts.map((r, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-[#B6FF3B]"
-          style={{ top: r.top, left: r.left }}
-          initial={{ opacity: 0 }}
-          animate={
-            reduceMotion
-              ? { opacity: 0.15 }
-              : { opacity: [0.1, 0.3, 0.1], y: [0, -18, 0] }
-          }
-          transition={
-            reduceMotion
-              ? { duration: 0.6 }
-              : { duration: r.duration, delay: r.delay, repeat: Infinity, ease: 'easeInOut' }
-          }
-        >
-          <Receipt size={r.size} strokeWidth={1.25} />
-        </motion.div>
-      ))}
-    </div>
-  )
-}
-
 // ─── Hero ────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
@@ -235,13 +195,10 @@ function Hero() {
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <AnimatedGroup>
           {/* Headline */}
-          <div className="relative">
-            <HeroAmbient />
-            <h1 className="trovar-shimmer relative text-5xl font-light leading-[1.1] tracking-tight md:text-7xl">
-              The expense engine<br />
-              for accounting firms.
-            </h1>
-          </div>
+          <h1 className="trovar-shimmer relative text-5xl font-light leading-[1.1] tracking-tight md:text-7xl">
+            The expense engine<br />
+            for accounting firms.
+          </h1>
 
           {/* Sub: the closed loop */}
           <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
@@ -276,20 +233,26 @@ function Hero() {
 
         <style jsx>{`
           .trovar-shimmer {
-            background: linear-gradient(110deg, #f5f5f7 35%, #ffffff 50%, #f5f5f7 65%);
-            background-size: 220% 100%;
+            background: linear-gradient(110deg, #f5f5f7 30%, #ffffff 42%, #d9ffb0 50%, #ffffff 58%, #f5f5f7 70%);
+            background-size: 250% 100%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: trovar-shimmer-sweep 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 18px rgba(182, 255, 59, 0));
+            animation: trovar-shimmer-sweep 6s ease-in-out infinite, trovar-shimmer-glow 6s ease-in-out infinite;
           }
           @keyframes trovar-shimmer-sweep {
-            0% { background-position: 200% 0; }
-            50% { background-position: 0% 0; }
-            100% { background-position: -200% 0; }
+            0% { background-position: 220% 0; }
+            45%, 55% { background-position: 0% 0; }
+            100% { background-position: -220% 0; }
+          }
+          @keyframes trovar-shimmer-glow {
+            0%, 40% { filter: drop-shadow(0 0 0px rgba(182, 255, 59, 0)); }
+            50% { filter: drop-shadow(0 0 22px rgba(182, 255, 59, 0.25)); }
+            60%, 100% { filter: drop-shadow(0 0 0px rgba(182, 255, 59, 0)); }
           }
           @media (prefers-reduced-motion: reduce) {
-            .trovar-shimmer { animation: none; background: none; color: #f5f5f7; }
+            .trovar-shimmer { animation: none; background: none; color: #f5f5f7; filter: none; }
           }
         `}</style>
 
