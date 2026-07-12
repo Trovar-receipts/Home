@@ -680,13 +680,8 @@ function Pricing() {
       price: 'Custom',
       desc: 'For large firms & networks',
       badge: null,
-      features: [
-        'Everything in Practice',
-        'Volume pricing',
-        'Dedicated account manager',
-        'Custom integrations',
-        'White-label option',
-      ],
+      note: 'We\'ll work with you to find a pricing and feature structure that fits how your firm operates.',
+      features: [],
       cta: 'Talk to us',
       href: 'mailto:hello@trovar.co.nz',
       highlight: false,
@@ -736,14 +731,18 @@ function Pricing() {
                   {tier.price !== 'Custom' && <span className="mb-1 text-sm text-[#8A8D8F]">NZD</span>}
                 </div>
                 <p className="mt-1 text-xs text-[#8A8D8F]">{tier.desc}</p>
-                <ul className="mt-6 space-y-3">
-                  {tier.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#C9CCCE]">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#22C55E]" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+                {tier.features.length > 0 ? (
+                  <ul className="mt-6 space-y-3">
+                    {tier.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-sm text-[#C9CCCE]">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#22C55E]" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                ) : tier.note ? (
+                  <p className="mt-6 text-sm leading-relaxed text-[#C9CCCE]">{tier.note}</p>
+                ) : null}
                 <a
                   href={tier.href}
                   className={cn(
