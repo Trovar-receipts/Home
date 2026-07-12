@@ -655,7 +655,7 @@ function Pricing() {
     {
       name: 'First client',
       price: '$0',
-      desc: 'Free, forever · no card needed',
+      desc: 'One client free, forever · no card needed',
       badge: 'Start here',
       features: [
         'Full access, no feature limits',
@@ -665,13 +665,13 @@ function Pricing() {
       ],
       cta: 'Get started',
       href: '/get-started',
-      highlight: false,
+      highlight: true,
     },
     {
       name: 'Practice',
       price: '$59',
       desc: 'Per client / month, after your first client',
-      badge: 'Most popular',
+      badge: null,
       features: [
         'Connects to your clients\' paid subscriptions',
         'Meta & many more',
@@ -683,7 +683,7 @@ function Pricing() {
       ],
       cta: 'Get started',
       href: '/get-started',
-      highlight: true,
+      highlight: false,
     },
     {
       name: 'Custom',
