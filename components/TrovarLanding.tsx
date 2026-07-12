@@ -653,9 +653,25 @@ function Features() {
 function Pricing() {
   const tiers = [
     {
+      name: 'First client',
+      price: '$0',
+      desc: 'Free, forever · no card needed',
+      badge: 'Start here',
+      features: [
+        'Full access, no feature limits',
+        'Connects to your client\'s paid subscriptions',
+        'IRD-compliant taxable supply records',
+        'Run it on a real client for as long as you like',
+      ],
+      cta: 'Get started',
+      href: '/get-started',
+      highlight: false,
+    },
+    {
       name: 'Practice',
       price: '$59',
-      desc: 'Per client / month · try it with your first client free.',
+      desc: 'Per client / month, after your first client',
+      badge: 'Most popular',
       features: [
         'Connects to your clients\' paid subscriptions',
         'Meta & many more',
@@ -673,6 +689,7 @@ function Pricing() {
       name: 'Custom',
       price: 'Custom',
       desc: 'For large firms & networks',
+      badge: null,
       features: [
         'Everything in Practice',
         'Volume pricing',
@@ -702,7 +719,7 @@ function Pricing() {
           </div>
         </FadeIn>
 
-        <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
           {tiers.map((tier, i) => (
             <FadeIn key={i} delay={i * 0.06}>
               <div
@@ -711,20 +728,27 @@ function Pricing() {
                   tier.highlight ? 'border-[#B6FF3B]/40 bg-[#B6FF3B]/5' : 'border-[#2E3032] bg-[#1F2122]'
                 )}
               >
-                {tier.highlight && (
-                  <span className="mb-4 inline-block rounded-full border border-[#B6FF3B]/30 bg-[#B6FF3B]/10 px-3 py-1 text-xs text-[#B6FF3B]">
-                    Most popular
+                {tier.badge && (
+                  <span
+                    className={cn(
+                      'mb-4 inline-block rounded-full border px-3 py-1 text-xs',
+                      tier.highlight
+                        ? 'border-[#B6FF3B]/30 bg-[#B6FF3B]/10 text-[#B6FF3B]'
+                        : 'border-[#3DD68C]/30 bg-[#3DD68C]/10 text-[#3DD68C]'
+                    )}
+                  >
+                    {tier.badge}
                   </span>
                 )}
-                <h3 className="text-sm font-medium text-[#8A8D8F]">{tier.name}</h3>
+                <h3 className="text-sm font-medium text-[#C9CCCE]">{tier.name}</h3>
                 <div className="mt-2 flex items-end gap-1">
                   <span className="text-4xl font-light text-[#F5F5F7]">{tier.price}</span>
-                  {tier.price !== 'Custom' && <span className="mb-1 text-sm text-[#4A4D4F]">NZD</span>}
+                  {tier.price !== 'Custom' && <span className="mb-1 text-sm text-[#8A8D8F]">NZD</span>}
                 </div>
-                <p className="mt-1 text-xs text-[#4A4D4F]">{tier.desc}</p>
+                <p className="mt-1 text-xs text-[#8A8D8F]">{tier.desc}</p>
                 <ul className="mt-6 space-y-3">
                   {tier.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-[#8A8D8F]">
+                    <li key={f} className="flex items-center gap-2 text-sm text-[#C9CCCE]">
                       <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#22C55E]" />
                       {f}
                     </li>
