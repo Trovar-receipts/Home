@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, useReducedMotion, Variants } from 'framer-motion'
-import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play } from 'lucide-react'
+import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play, Search, Download, CheckCircle2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // ─── Brand Tokens ────────────────────────────────────────────────────────────
@@ -228,7 +228,6 @@ function Hero() {
               See how it works
             </a>
           </div>
-          <p className="mt-3 text-xs text-[#4A4D4F]">First client free, forever · NZ &amp; AU</p>
         </AnimatedGroup>
 
         {/* Demo video placeholder */}
@@ -270,11 +269,14 @@ function Hero() {
 }
 
 // ─── Closed loop / reconciliation showcase ───────────────────────────────────
+const closedLoopSteps = [
+  { icon: Zap, label: 'A transaction fires', done: false },
+  { icon: Search, label: 'Trovar identifies what receipt is needed', done: false },
+  { icon: Download, label: 'Trovar fetches it', done: false },
+  { icon: CheckCircle2, label: 'Matched and ready for Xero', done: true },
+]
+
 function ClosedLoop() {
-  const missing = [
-    { date: '14 Jun', merchant: 'Adobe Creative Cloud', amount: 'NZD 79.99' },
-    { date: '18 Jun', merchant: 'Meta Ads', amount: 'AUD 245.10' },
-  ]
   return (
     <section id="reconciliation" className="border-y border-[#2E3032] py-20 md:py-28 scroll-mt-24" style={{ backgroundColor: '#050C0D' }}>
       <div className="mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2">
@@ -284,36 +286,36 @@ function ClosedLoop() {
             <span className="text-[#8A8D8F]">transactions with receipts.</span>
           </h2>
           <p className="mt-5 max-w-md text-[#8A8D8F]">
-            Airwallex transaction data is passed straight to Trovar in real time and matched against every
-            captured invoice automatically. No more chasing your client to confirm what&apos;s missing, you
-            see it as it happens, and can pull what you need yourself.
+            Your client&apos;s card transaction hits. Trovar already knows what receipt belongs to it, and
+            goes and gets it. Connect whatever card or bank feed your clients use, and we match against it
+            automatically, so you know exactly what&apos;s missing, not just what&apos;s been filed.
           </p>
           <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#2E3032] bg-[#1F2122] px-3 py-1.5 text-[11px] text-[#8A8D8F]">
-            Powered by
+            Works with
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="https://icons.duckduckgo.com/ip3/airwallex.com.ico" alt="Airwallex" className="h-3.5 w-3.5 rounded-sm" />
-            Airwallex
+            Airwallex, and more
           </span>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <div className="rounded-2xl border border-[#2E3032] bg-[#1F2122] p-6 shadow-2xl">
-            <p className="text-xs font-medium uppercase tracking-wide text-[#6B6E70]">Reconciled</p>
-            <div className="mt-2 flex items-end gap-3">
-              <span className="text-5xl font-semibold text-[#3DD68C]">94%</span>
-              <span className="mb-1.5 text-sm text-[#8A8D8F]">last 30 days</span>
-            </div>
-            <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-[#2E3032]">
-              <div className="h-full rounded-full bg-[#3DD68C]" style={{ width: '94%' }} />
-            </div>
-            <p className="mt-4 text-sm text-[#8A8D8F]">32 of 34 card transactions matched to a captured invoice.</p>
-            <div className="mt-5 space-y-2 border-t border-[#2E3032] pt-4">
-              <p className="text-xs text-[#6B6E70]">Still missing</p>
-              {missing.map((m) => (
-                <div key={m.merchant} className="flex items-center gap-3 text-xs text-[#C9CCCE]">
-                  <span className="text-[#8A8D8F]">{m.date}</span>
-                  <span className="flex-1 truncate">{m.merchant}</span>
-                  <span className="text-[#F5F5F7]">{m.amount}</span>
+            <p className="text-xs font-medium uppercase tracking-wide text-[#6B6E70]">How it closes the loop</p>
+            <div className="mt-5">
+              {closedLoopSteps.map((step, i) => (
+                <div key={step.label}>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={cn(
+                        'flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border',
+                        step.done ? 'border-[#22C55E]/30 bg-[#22C55E]/10' : 'border-[#2E3032] bg-[#000D0F]'
+                      )}
+                    >
+                      <step.icon className={cn('h-4 w-4', step.done ? 'text-[#3DD68C]' : i === 0 ? 'text-[#8A8D8F]' : 'text-[#B6FF3B]')} />
+                    </div>
+                    <p className={cn('text-sm', step.done ? 'text-[#F5F5F7]' : 'text-[#C9CCCE]')}>{step.label}</p>
+                  </div>
+                  {i < closedLoopSteps.length - 1 && <div className="ml-[18px] h-5 w-px bg-[#2E3032]" />}
                 </div>
               ))}
             </div>
@@ -332,7 +334,7 @@ const platforms: { name: string; domain: string }[] = [
   { name: 'TikTok Ads', domain: 'tiktok.com' },
   { name: 'LinkedIn Ads', domain: 'linkedin.com' },
   { name: 'Amazon Ads', domain: 'advertising.amazon.com' },
-  { name: 'Adobe', domain: 'adobe.com' },
+  { name: 'Adobe', domain: 'helpx.adobe.com' },
   { name: 'Canva', domain: 'canva.com' },
   { name: 'Shopify', domain: 'shopify.com' },
   { name: 'Stripe', domain: 'stripe.com' },
@@ -395,7 +397,7 @@ const steps = [
     icon: RefreshCw,
     label: 'MATCH',
     title: 'We match',
-    description: 'Trovar checks every charge on your client\'s Airwallex feed against what\'s been collected, so you know exactly what\'s missing, not just what\'s been filed. It\'s the fully closed loop, and nobody\'s done it before Trovar.',
+    description: 'Trovar checks every charge on your client\'s card or bank feed against what\'s been collected, so you know exactly what\'s missing, not just what\'s been filed. It\'s the fully closed loop, and nobody\'s done it before Trovar.',
   },
   {
     icon: ArrowRight,
@@ -570,7 +572,7 @@ const features = [
   {
     icon: Zap,
     title: 'Never logs in as your client',
-    description: 'No stored passwords, no bots driving a browser session. Works when Hubdoc doesn\'t, and your clients\' ad accounts are never at risk of being flagged for suspicious login activity.',
+    description: 'Your clients\' ad accounts are their business, and we take that seriously. Trovar never stores passwords and never logs in on your client\'s behalf. Every connection uses OAuth and can be revoked by your client in one click.',
   },
   {
     icon: Mail,
@@ -643,13 +645,13 @@ function Features() {
 function Pricing() {
   const tiers = [
     {
-      name: 'First client',
+      name: 'Start here',
       price: '$0',
-      desc: 'One client free, forever · no card needed',
-      badge: 'Start here',
+      desc: 'One client, full product, no card needed',
+      body: 'See what reconciliation should feel like before committing to anything.',
+      badge: null,
       features: [
-        'Full access, no feature limits',
-        'Connects to your client\'s paid subscriptions',
+        'Full access, all capture methods',
         'IRD-compliant taxable supply records',
         'Run it on a real client for as long as you like',
       ],
@@ -660,16 +662,14 @@ function Pricing() {
     {
       name: 'Paid Plan',
       price: '$59',
-      desc: 'Per client / month, after your first client',
+      desc: 'Per client / month, after your first',
+      body: 'Built to manage your full client base. We work with you to set up each client properly, you\'re not on your own.',
       badge: null,
       features: [
-        'Connects to your clients\' paid subscriptions',
-        'Meta & many more',
-        'Email-in & manual invoice capture',
-        'IRD-compliant taxable supply records',
+        'Everything in the free plan',
         'Practice dashboard & one-click exports',
-        'Priority support from the founders',
         'Xero integration (coming soon)',
+        'Supported by NZ founders who help you configure each client',
       ],
       cta: 'Get started',
       href: '/get-started',
@@ -731,6 +731,7 @@ function Pricing() {
                   {tier.price !== 'Custom' && <span className="mb-1 text-sm text-[#8A8D8F]">NZD</span>}
                 </div>
                 <p className="mt-1 text-xs text-[#8A8D8F]">{tier.desc}</p>
+                {tier.body && <p className="mt-4 text-sm leading-relaxed text-[#C9CCCE]">{tier.body}</p>}
                 {tier.features.length > 0 ? (
                   <ul className="mt-6 space-y-3">
                     {tier.features.map((f) => (
@@ -776,15 +777,14 @@ function VsHubdoc() {
               <span className="text-[#8A8D8F]">Then 2FA killed it.&rdquo;</span>
             </h2>
             <p className="mt-4 max-w-xl text-[#8A8D8F]">
-              A Xero Platinum Partner, 2024. Hubdoc stores your passwords and logs in as you, which breaks every time a platform adds 2FA. Meta, Google and Adobe all have. Hubdoc is increasingly unreliable for exactly the platforms your clients spend the most on.
-            </p>
-            <p className="mt-3 max-w-xl text-[#8A8D8F]">
-              <span className="text-[#E6E6E8]">And vs Dext?</span> Dext waits for documents to arrive, or logs into your client&apos;s ad accounts to fetch them, the same risky trick as Hubdoc. Trovar never logs in on your behalf, and every ad-platform charge comes straight from the client&apos;s own export, matched to the bank line.
+              We&apos;re not a one-size-fits-all app. Whatever the platform, there&apos;s a way to capture it,
+              email it through, fetch it by API, or upload it manually when nothing else fits. What matters
+              is that your reconciliation gets done accurately, every month, without you chasing anyone.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#2E3032] bg-[#000D0F] p-5">
-                <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Hubdoc</p>
-                {['Credential scraping that breaks on 2FA', 'Nearly 2,000 outages recorded', 'No NZ IRD compliance layer', 'Free but increasingly broken'].map((item) => (
+                <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Without a system</p>
+                {['IRD audit risk from missing records', 'Hours of manual work every month end', 'Clients who never send receipts', 'Ad accounts at risk from tools logging in as them'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <X className="h-3.5 w-3.5 text-red-500/70" />
                     {item}
@@ -792,8 +792,8 @@ function VsHubdoc() {
                 ))}
               </div>
               <div className="rounded-xl border border-[#22C55E]/20 bg-[#22C55E]/5 p-5">
-                <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Trovar</p>
-                {['OAuth API, immune to 2FA', 'Reads invoices forwarded by email too', 'NZ GST & IRD records built in', 'Gets stronger as 2FA spreads'].map((item) => (
+                <p className="mb-3 text-sm font-medium text-[#F5F5F7]">With Trovar</p>
+                {['Every charge matched to a receipt', 'Every record IRD-ready', 'Every month sorted without chasing', 'Client accounts protected'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <span className="h-3.5 w-3.5 rounded-full bg-[#22C55E]/60 flex-shrink-0" />
                     {item}
@@ -812,23 +812,23 @@ function VsHubdoc() {
 const faqs = [
   {
     q: 'How is Trovar different from Hubdoc?',
-    a: 'Hubdoc stores your client\'s passwords and logs in as them, which breaks when platforms add 2FA. Trovar uses proper OAuth API connections, accessing billing data directly. It never stores passwords and won\'t break when Meta updates their security. Trovar also goes a step further than Hubdoc ever did: it checks every collected invoice against your client\'s bank feed, so you know it\'s reconciled, not just filed.',
+    a: 'Trovar is built around your workflow. If a platform sends invoices by email, we catch them there. If there\'s an API, we use it. If your client needs to upload manually, we make that as easy as possible. The goal is accurate reconciliation, not a clever technical trick, so every collected invoice is also checked against your client\'s bank feed, so you know it\'s reconciled, not just filed.',
   },
   {
     q: 'How is Trovar different from Dext?',
-    a: 'Dext (and Receipt Bank before it) mostly waits for documents to arrive, and for platforms it does chase, it logs into the account for you, the same credential-scraping trick that breaks Hubdoc. Trovar never logs in on a client\'s behalf. Suppliers that email invoices file themselves; ad platforms take a 60-second monthly step using the client\'s own export, never a shared login. Dext is a smart inbox; Trovar closes the loop without the risk, and matches everything collected against the bank feed automatically, something Dext doesn\'t do.',
+    a: 'Trovar is built around your workflow, not a fixed document pipeline. Suppliers that email invoices file themselves automatically, ad platforms are pulled directly via API using your practice\'s own connection, and anything off-platform you can add by hand in seconds. On top of that, every collected invoice is matched against your client\'s bank feed automatically, so you always know what\'s reconciled, not just what\'s been filed.',
   },
   {
     q: 'How is Trovar different from Tailride?',
-    a: 'For Meta Ads, Tailride uses a browser extension that has to ride your client\'s live, logged-in session, so someone still has to open the account and click through it every time. Trovar pulls Meta\'s billing charges directly via API. Once your practice is connected, you pull a client\'s charges yourself, whenever suits you, without ever asking them to log into anything. The task stays with you, not your client, which means one less thing for them to forget and one less chance of the wrong file being sent. Tailride is also a general tool priced per invoice, for any business. Trovar is built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, not one company\'s inbox, including checking every invoice against the client\'s bank feed to prove it\'s reconciled.',
+    a: 'Trovar pulls Meta\'s billing charges directly via API, so once your practice is connected you can pull a client\'s charges yourself, whenever suits you, without ever asking them to open or log into anything. It\'s also built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, including checking every invoice against the client\'s bank feed to prove it\'s reconciled.',
   },
   {
     q: 'How is Trovar different from Vic.ai?',
-    a: 'Vic.ai is AI-powered invoice processing built for larger finance teams that already have documents flowing into an AP or procurement system, and it\'s priced for that scale. Trovar solves the step before that: it\'s built for NZ & AU accounting practices managing many small-to-mid client businesses, and it collects the invoices in the first place, without ever logging in on a client\'s behalf, then matches every charge to the bank feed automatically. Vic.ai automates processing once documents already exist in your system; Trovar automates getting them there, and proves they reconcile.',
+    a: 'Trovar is built for NZ & AU accounting practices managing many small-to-mid client businesses. It focuses on collecting the invoices in the first place, without ever logging in on a client\'s behalf, and matching every charge to the bank feed automatically, so you know it\'s reconciled, not just processed.',
   },
   {
     q: 'How is Trovar different from Ramp?',
-    a: 'Ramp is a corporate card and spend-management platform, most useful once a business runs its spending through Ramp\'s own card. Trovar works regardless of which bank or card your client already uses, Airwallex, ASB, ANZ or anything else, and is focused on the accountant\'s problem specifically: collecting every supplier invoice and proving it reconciles against the bank feed, without asking your client to switch banking providers.',
+    a: 'Trovar works regardless of which bank or card your client already uses, Airwallex, ASB, ANZ or anything else. It\'s focused specifically on the accountant\'s problem: collecting every supplier invoice and proving it reconciles against the bank feed, without asking your client to change how they bank.',
   },
   {
     q: 'Why did you build Trovar?',
@@ -836,7 +836,7 @@ const faqs = [
   },
   {
     q: 'What does the "reconciled %" on my dashboard mean?',
-    a: 'Trovar connects to your client\'s Airwallex card feed and checks every charge against the invoices you\'ve already collected. Instead of a spreadsheet of red dots, or chasing your accountant to confirm what\'s missing, you see a live percentage per client, and exactly which transactions still need a receipt. It\'s the difference between collecting invoices and proving they actually match what was spent, and it\'s not something Hubdoc, Dext or Tailride do.',
+    a: 'Trovar connects to your client\'s card or bank feed (Airwallex, and more) and checks every charge against the invoices you\'ve already collected. Instead of a spreadsheet of red dots, or chasing your client to confirm what\'s missing, you see a live percentage per client, and exactly which transactions still need a receipt. It\'s the difference between collecting invoices and proving they actually match what was spent.',
   },
   {
     q: 'Which platforms does Trovar connect to?',
@@ -917,7 +917,8 @@ function FoundersNote() {
           <p className="mx-auto mt-4 max-w-xl text-[#8A8D8F]">
             Trovar is built by NZ-based technical founders who genuinely care about your
             practice&apos;s success. When you need a hand, you talk to the people who build the
-            product, and we&apos;ll make sure you&apos;re set up to win.
+            product, and we&apos;ll make sure you&apos;re set up to win. We built Trovar because we
+            lived this problem, we&apos;re invested in making it work for you.
           </p>
         </FadeIn>
       </div>
@@ -957,7 +958,6 @@ function WaitlistCTA() {
               Contact us
             </a>
           </div>
-          <p className="mt-3 text-xs text-[#4A4D4F]">trovar.co.nz · NZ &amp; AU only</p>
         </FadeIn>
       </div>
     </section>
