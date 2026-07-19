@@ -206,10 +206,8 @@ function Hero() {
             <span className="text-[#B6FF3B]">Collect it, match it, prove it&apos;s reconciled.</span>
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8A8D8F]">
-            Whatever the platform, there&apos;s a way to capture it: email it through, fetch it by API, or
-            upload it manually when nothing else fits. Unlike tools that log in with headless browsers and
-            risk tripping 2FA or getting an ad account flagged, Trovar never logs in at all. Every charge is
-            then matched against the bank feed automatically. The control sits with you, not your client, so
+            Whatever the platform, there&apos;s a way to capture every invoice: email it through, fetch it by
+            API, or upload it manually when nothing else fits. The control sits with you, not your client, so
             the hard work of chasing invoices is gone for good.
           </p>
 
