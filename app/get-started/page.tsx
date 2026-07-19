@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, type ReactNode, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 
 // Curated integration list (also doubles as market research on demand)
@@ -32,6 +33,15 @@ const inputCls =
   "w-full rounded-xl border border-[#2E3032] bg-[#000D0F] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#4A4D4F] outline-none transition focus:border-[#B6FF3B]/50";
 
 export default function GetStarted() {
+  return (
+    <Suspense fallback={null}>
+      <GetStartedForm />
+    </Suspense>
+  );
+}
+
+function GetStartedForm() {
+  const searchParams = useSearchParams();
   const [step, setStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
@@ -39,7 +49,8 @@ export default function GetStarted() {
 
   const [form, setForm] = useState({
     name: "",
-    email: "",
+    // Prefilled from the homepage's inline email field, if they came from there.
+    email: searchParams.get("email") ?? "",
     practiceName: "",
     phone: "",
     clientBand: "",

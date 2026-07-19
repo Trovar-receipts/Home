@@ -211,21 +211,26 @@ function Hero() {
             the hard work of chasing invoices is gone for good.
           </p>
 
-          {/* CTA */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="/get-started"
-              className="flex items-center gap-1.5 rounded-xl bg-[#B6FF3B] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#C9FF6B]"
+          {/* CTA — email right here, one click into get-started, so nobody drops off between "interested" and "signed up" */}
+          <form
+            action="/get-started"
+            method="GET"
+            className="mx-auto mt-10 flex max-w-md flex-col items-stretch gap-3 sm:flex-row"
+          >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your work email"
+              className="w-full rounded-xl border border-[#2E3032] bg-[#1F2122] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#6B6E70] outline-none transition focus:border-[#B6FF3B]/50"
+            />
+            <button
+              type="submit"
+              className="flex shrink-0 items-center justify-center gap-1.5 rounded-xl bg-[#B6FF3B] px-6 py-3 text-sm font-medium text-[#04181C] transition hover:bg-[#C9FF6B]"
             >
               Get started <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#demo"
-              className="rounded-xl border border-[#2E3032] px-6 py-3 text-sm text-[#E6E6E8] transition hover:bg-[#1F2122]"
-            >
-              See how it works
-            </a>
-          </div>
+            </button>
+          </form>
         </AnimatedGroup>
 
         {/* Demo video placeholder */}
