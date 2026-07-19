@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { motion, useReducedMotion, Variants } from 'framer-motion'
-import { ArrowRight, Menu, X, ChevronDown, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play, Search, Download, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, Menu, X, Zap, Shield, RefreshCw, BarChart3, Users, Mail, Play, Search, Download, CheckCircle2, Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // ─── Brand Tokens ────────────────────────────────────────────────────────────
@@ -281,8 +281,9 @@ const closedLoopSteps = [
 
 function ClosedLoop() {
   return (
-    <section id="reconciliation" className="border-y border-[#2E3032] py-20 md:py-28 scroll-mt-24" style={{ backgroundColor: '#050C0D' }}>
-      <div className="mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2">
+    <section id="reconciliation" className="relative overflow-hidden border-y border-[#2E3032] py-20 md:py-28 scroll-mt-24" style={{ backgroundColor: '#050C0D' }}>
+      <div className="pointer-events-none absolute right-0 top-1/2 h-[400px] w-[500px] -translate-y-1/2 rounded-full bg-[#B6FF3B]/10 blur-3xl" />
+      <div className="relative mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2">
         <FadeIn>
           <h2 className="text-3xl font-light leading-tight text-[#F5F5F7] md:text-4xl">
             Trovar automatically matches<br />
@@ -311,8 +312,13 @@ function ClosedLoop() {
                     <div
                       className={cn(
                         'flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border',
-                        step.done ? 'border-[#22C55E]/30 bg-[#22C55E]/10' : 'border-[#2E3032] bg-[#000D0F]'
+                        step.done
+                          ? 'border-[#22C55E]/30 bg-gradient-to-br from-[#22C55E]/20 to-[#22C55E]/5'
+                          : i === 0
+                            ? 'border-[#2E3032] bg-[#000D0F]'
+                            : 'border-[#B6FF3B]/20 bg-gradient-to-br from-[#B6FF3B]/20 to-[#B6FF3B]/5'
                       )}
+                      style={step.done ? { boxShadow: '0 0 20px -6px rgba(61,214,140,0.35)' } : i > 0 ? { boxShadow: '0 0 20px -6px rgba(182,255,59,0.3)' } : undefined}
                     >
                       <step.icon className={cn('h-4 w-4', step.done ? 'text-[#3DD68C]' : i === 0 ? 'text-[#8A8D8F]' : 'text-[#B6FF3B]')} />
                     </div>
@@ -549,7 +555,10 @@ function HowItWorks() {
             <div className="space-y-8">
               {steps.map((step, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#2E3032] bg-[#1F2122]">
+                  <div
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#B6FF3B]/20 bg-gradient-to-br from-[#B6FF3B]/20 to-[#B6FF3B]/5"
+                    style={{ boxShadow: '0 0 20px -6px rgba(182,255,59,0.3)' }}
+                  >
                     <step.icon className="h-4 w-4 text-[#B6FF3B]" />
                   </div>
                   <div>
@@ -624,7 +633,10 @@ function Features() {
             <FadeIn key={i} delay={i * 0.05}>
               <div className="group h-full rounded-2xl border border-[#2E3032] bg-[#1F2122] p-6 transition hover:border-[#3A3B3D] hover:bg-[#2A2B2C]">
                 <div className="mb-4 flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#000D0F] border border-[#2E3032]">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#B6FF3B]/20 bg-gradient-to-br from-[#B6FF3B]/20 to-[#B6FF3B]/5"
+                    style={{ boxShadow: '0 0 24px -6px rgba(182,255,59,0.35)' }}
+                  >
                     <f.icon className="h-4 w-4 text-[#B6FF3B]" />
                   </div>
                   {f.soon && (
@@ -709,7 +721,10 @@ function Pricing() {
 
         <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
           {tiers.map((tier, i) => (
-            <FadeIn key={i} delay={i * 0.06}>
+            <FadeIn key={i} delay={i * 0.06} className="relative h-full">
+              {tier.highlight && (
+                <div className="pointer-events-none absolute -inset-6 -z-10 rounded-full bg-[#B6FF3B]/10 blur-3xl" />
+              )}
               <div
                 className={cn(
                   'h-full rounded-2xl border p-8 transition',
@@ -878,17 +893,17 @@ function FAQ() {
             <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">Common questions</h2>
           </div>
         </FadeIn>
-        <div className="space-y-2">
-          {faqs.map((faq, i) => (
-            <FadeIn key={i} delay={i * 0.03}>
-              <div className="rounded-xl border border-[#2E3032] bg-[#1F2122] overflow-hidden">
+        <FadeIn delay={0.05}>
+          <div className="rounded-2xl border border-[#2E3032] overflow-hidden">
+            {faqs.map((faq, i) => (
+              <div key={i} className={cn(i > 0 && 'border-t border-[#2E3032]')}>
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="flex w-full items-center justify-between px-6 py-4 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-[#1F2122]/60"
                 >
                   <span className="font-medium text-[#E6E6E8]">{faq.q}</span>
-                  <ChevronDown
-                    className={cn('h-4 w-4 text-[#4A4D4F] transition-transform duration-200 flex-shrink-0 ml-4', open === i && 'rotate-180')}
+                  <Plus
+                    className={cn('h-4 w-4 shrink-0 text-[#B6FF3B] transition-transform duration-200', open === i && 'rotate-45')}
                   />
                 </button>
                 <div
@@ -900,9 +915,9 @@ function FAQ() {
                   </div>
                 </div>
               </div>
-            </FadeIn>
-          ))}
-        </div>
+            ))}
+          </div>
+        </FadeIn>
       </div>
     </section>
   )
