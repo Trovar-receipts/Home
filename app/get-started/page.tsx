@@ -30,7 +30,7 @@ const CLIENT_BANDS = ["1–5", "6–20", "21–50", "50+"];
 
 const card = "rounded-xl border border-[#2E3032] bg-[#1F2122]";
 const inputCls =
-  "w-full rounded-xl border border-[#2E3032] bg-[#000D0F] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#4A4D4F] outline-none transition focus:border-[#B6FF3B]/50";
+  "w-full rounded-xl border border-[#2E3032] bg-[#000D0F] px-4 py-3 text-sm text-[#FFFFFF] placeholder-[#4A4D4F] outline-none transition focus:border-[#B6FF3B]/50";
 
 export default function GetStarted() {
   return (
@@ -101,7 +101,7 @@ function GetStartedForm() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-wordmark.svg" alt="Trovar" className="h-5 w-auto" />
           </a>
-          <a href="/" className="shrink-0 text-sm text-[#8A8D8F] transition hover:text-[#F5F5F7]">
+          <a href="/" className="shrink-0 text-sm text-[#8A8D8F] transition hover:text-[#FFFFFF]">
             Back to site
           </a>
         </div>
@@ -170,7 +170,7 @@ function GetStartedForm() {
                           </span>
                         )}
                         <AppIcon slug={app.slug} name={app.name} />
-                        <span className="text-xs font-medium text-[#F5F5F7]">{app.name}</span>
+                        <span className="text-xs font-medium text-[#FFFFFF]">{app.name}</span>
                       </button>
                     );
                   })}
@@ -199,7 +199,7 @@ function GetStartedForm() {
                         style={{
                           borderColor: form.clientBand === band ? "#B6FF3B" : "#2E3032",
                           backgroundColor: form.clientBand === band ? "#B6FF3B14" : "#1F2122",
-                          color: form.clientBand === band ? "#F5F5F7" : "#8A8D8F",
+                          color: form.clientBand === band ? "#FFFFFF" : "#8A8D8F",
                         }}
                       >
                         {band}
@@ -226,7 +226,7 @@ function GetStartedForm() {
               {step > 0 ? (
                 <button
                   onClick={() => setStep((s) => s - 1)}
-                  className="flex items-center gap-1.5 text-sm text-[#8A8D8F] transition hover:text-[#F5F5F7]"
+                  className="flex items-center gap-1.5 text-sm text-[#8A8D8F] transition hover:text-[#FFFFFF]"
                 >
                   <ArrowLeft size={15} /> Back
                 </button>
@@ -288,7 +288,7 @@ function AppIcon({ slug, name }: { slug: string; name: string }) {
 function Section({ title, subtitle, children }: { title: string; subtitle: string; children: ReactNode }) {
   return (
     <div>
-      <h1 className="text-2xl font-light text-[#F5F5F7] md:text-3xl">{title}</h1>
+      <h1 className="text-2xl font-light text-[#FFFFFF] md:text-3xl">{title}</h1>
       <p className="mt-2 mb-8 text-[#8A8D8F]">{subtitle}</p>
       {children}
     </div>
@@ -312,14 +312,14 @@ function Success({ email }: { email: string }) {
           <Check size={28} className="text-[#04181C]" strokeWidth={2.5} />
         </div>
       </div>
-      <h1 className="text-3xl font-light text-[#F5F5F7] md:text-4xl">We're preparing your account</h1>
+      <h1 className="text-3xl font-light text-[#FFFFFF] md:text-4xl">We're preparing your account</h1>
       <p className="mx-auto mt-4 max-w-md text-[#8A8D8F]">
         Thanks, we've got your details. Our team is setting up your connections now. We'll email{" "}
-        <span className="text-[#F5F5F7]">{email}</span> the moment it's ready to use.
+        <span className="text-[#FFFFFF]">{email}</span> the moment it's ready to use.
       </p>
       <a
         href="/"
-        className="mt-8 inline-flex items-center gap-1.5 rounded-xl border border-[#2E3032] px-5 py-3 text-sm text-[#E6E6E8] transition hover:bg-[#1F2122]"
+        className="mt-8 inline-flex items-center gap-1.5 rounded-xl border border-[#2E3032] px-5 py-3 text-sm text-[#FFFFFF] transition hover:bg-[#1F2122]"
       >
         Back to site
       </a>

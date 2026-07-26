@@ -12,8 +12,8 @@ const brand = {
   surfaceLight: '#2A2B2C',
   border: '#2E3032',
   borderLight: '#3A3B3D',
-  textPrimary: '#F5F5F7',
-  textSecondary: '#E6E6E8',
+  textPrimary: '#FFFFFF',
+  textSecondary: '#FFFFFF',
   textMuted: '#8A8D8F',
   accent: '#B6FF3B',
   accentGreen: '#22C55E',
@@ -111,7 +111,7 @@ function Header() {
         >
           {/* Logo */}
           <a href="/" className="flex shrink-0 items-center gap-2">
-            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#F5F5F7] sm:h-8 sm:w-8">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFFFFF] sm:h-8 sm:w-8">
               <TrovarMark size={20} dark />
             </div>
             <TrovarWordmark className="h-[18px] w-auto sm:h-6" />
@@ -121,7 +121,7 @@ function Header() {
           <ul className="hidden items-center gap-8 text-sm lg:flex">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a href={item.href} className="text-[#8A8D8F] transition hover:text-[#F5F5F7]">
+                <a href={item.href} className="text-[#8A8D8F] transition hover:text-[#FFFFFF]">
                   {item.name}
                 </a>
               </li>
@@ -132,7 +132,7 @@ function Header() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href="https://app.trovar.co.nz/login"
-              className="rounded-lg border border-[#2E3032] px-4 py-2 text-sm text-[#E6E6E8] transition hover:border-[#3A3B3D] hover:bg-[#1F2122]"
+              className="rounded-lg border border-[#2E3032] px-4 py-2 text-sm text-[#FFFFFF] transition hover:border-[#3A3B3D] hover:bg-[#1F2122]"
             >
               Sign in
             </a>
@@ -146,7 +146,7 @@ function Header() {
 
           {/* Mobile toggle */}
           <button onClick={() => setOpen(!open)} className="-mr-1 shrink-0 p-1 lg:hidden" aria-label="Menu">
-            {open ? <X className="h-5 w-5 text-[#F5F5F7]" /> : <Menu className="h-5 w-5 text-[#F5F5F7]" />}
+            {open ? <X className="h-5 w-5 text-[#FFFFFF]" /> : <Menu className="h-5 w-5 text-[#FFFFFF]" />}
           </button>
         </div>
 
@@ -156,14 +156,14 @@ function Header() {
             <ul className="space-y-5">
               {navItems.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-[#8A8D8F] hover:text-[#F5F5F7]" onClick={() => setOpen(false)}>
+                  <a href={item.href} className="text-[#8A8D8F] hover:text-[#FFFFFF]" onClick={() => setOpen(false)}>
                     {item.name}
                   </a>
                 </li>
               ))}
             </ul>
             <div className="mt-6 flex flex-col gap-3">
-              <a href="https://app.trovar.co.nz/login" className="rounded-lg border border-[#2E3032] px-4 py-2.5 text-center text-sm text-[#E6E6E8]">
+              <a href="https://app.trovar.co.nz/login" className="rounded-lg border border-[#2E3032] px-4 py-2.5 text-center text-sm text-[#FFFFFF]">
                 Sign in
               </a>
               <a href="/get-started" className="rounded-lg bg-[#B6FF3B] px-4 py-2.5 text-center text-sm font-medium text-[#04181C]">
@@ -185,7 +185,7 @@ function Hero() {
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: 'linear-gradient(#F5F5F7 1px, transparent 1px), linear-gradient(90deg, #F5F5F7 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(#FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
@@ -195,13 +195,13 @@ function Hero() {
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <AnimatedGroup>
           {/* Headline */}
-          <h1 className="text-4xl font-light leading-[1.1] tracking-tight text-[#F5F5F7] sm:text-5xl md:text-7xl">
+          <h1 className="text-4xl font-light leading-[1.1] tracking-tight text-[#FFFFFF] sm:text-5xl md:text-7xl">
             The expense engine<br />
             for accounting firms.
           </h1>
 
           {/* Sub: the closed loop */}
-          <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#E6E6E8] md:text-2xl">
+          <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-snug text-[#FFFFFF] md:text-2xl">
             Trovar automates the whole cycle.{' '}<br className="hidden sm:block" />
             <span className="text-[#B6FF3B]">Collect it, match it, prove it&apos;s reconciled.</span>
           </p>
@@ -222,7 +222,7 @@ function Hero() {
               name="email"
               required
               placeholder="Enter your work email"
-              className="w-full rounded-xl border border-[#2E3032] bg-[#1F2122] px-4 py-3 text-sm text-[#F5F5F7] placeholder-[#6B6E70] outline-none transition focus:border-[#B6FF3B]/50"
+              className="w-full rounded-xl border border-[#2E3032] bg-[#1F2122] px-4 py-3 text-sm text-[#FFFFFF] placeholder-[#6B6E70] outline-none transition focus:border-[#B6FF3B]/50"
             />
             <button
               type="submit"
@@ -244,7 +244,7 @@ function Hero() {
                 <div className="h-3 w-3 rounded-full bg-[#FFBD2E]" />
                 <div className="h-3 w-3 rounded-full bg-[#27C840]" />
                 <div className="ml-4 flex items-center gap-2">
-                  <div className="h-4 w-4 rounded bg-[#F5F5F7] flex items-center justify-center">
+                  <div className="h-4 w-4 rounded bg-[#FFFFFF] flex items-center justify-center">
                     <TrovarMark size={12} dark />
                   </div>
                   <span className="text-xs text-[#4A4D4F]">app.trovar.co.nz</span>
@@ -285,7 +285,7 @@ function ClosedLoop() {
       <div className="pointer-events-none absolute right-0 top-1/2 h-[400px] w-[500px] -translate-y-1/2 rounded-full bg-[#B6FF3B]/10 blur-3xl" />
       <div className="relative mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2">
         <FadeIn>
-          <h2 className="text-3xl font-light leading-tight text-[#F5F5F7] md:text-4xl">
+          <h2 className="text-3xl font-light leading-tight text-[#FFFFFF] md:text-4xl">
             Trovar automatically matches<br />
             <span className="text-[#8A8D8F]">transactions with receipts.</span>
           </h2>
@@ -322,7 +322,7 @@ function ClosedLoop() {
                     >
                       <step.icon className={cn('h-4 w-4', step.done ? 'text-[#3DD68C]' : i === 0 ? 'text-[#8A8D8F]' : 'text-[#B6FF3B]')} />
                     </div>
-                    <p className={cn('text-sm', step.done ? 'text-[#F5F5F7]' : 'text-[#C9CCCE]')}>{step.label}</p>
+                    <p className={cn('text-sm', step.done ? 'text-[#FFFFFF]' : 'text-[#C9CCCE]')}>{step.label}</p>
                   </div>
                   {i < closedLoopSteps.length - 1 && <div className="ml-[18px] h-5 w-px bg-[#2E3032]" />}
                 </div>
@@ -361,7 +361,7 @@ function PlatformStrip() {
       <div className="mx-auto max-w-5xl px-6">
         <FadeIn>
           <p className="mb-2 text-center text-xs tracking-widest text-[#4A4D4F] uppercase">Integrations</p>
-          <h2 className="mb-10 text-center text-2xl font-light text-[#F5F5F7] md:text-3xl">
+          <h2 className="mb-10 text-center text-2xl font-light text-[#FFFFFF] md:text-3xl">
             Connects to all your clients&apos; paid subscriptions
           </h2>
           <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-8">
@@ -501,7 +501,7 @@ function FlowDiagram() {
 
       {/* Hub */}
       <div
-        className="absolute flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl bg-[#F5F5F7] shadow-lg"
+        className="absolute flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl bg-[#FFFFFF] shadow-lg"
         style={{ left: `${(hub.x / 760) * 100}%`, top: `${(hub.y / 400) * 100}%` }}
       >
         <TrovarMark size={28} dark />
@@ -543,7 +543,7 @@ function HowItWorks() {
         <FadeIn>
           <div className="mb-16 text-center">
             <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">How it works</p>
-            <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">
+            <h2 className="text-3xl font-light text-[#FFFFFF] md:text-5xl">
               Expense automation<br />
               <span className="text-[#8A8D8F]">on autopilot.</span>
             </h2>
@@ -562,7 +562,7 @@ function HowItWorks() {
                     <step.icon className="h-4 w-4 text-[#B6FF3B]" />
                   </div>
                   <div>
-                    <h3 className="text-base font-medium text-[#F5F5F7]">{step.title}</h3>
+                    <h3 className="text-base font-medium text-[#FFFFFF]">{step.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-[#8A8D8F]">{step.description}</p>
                   </div>
                 </div>
@@ -621,7 +621,7 @@ function Features() {
         <FadeIn>
           <div className="mb-16 text-center">
             <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">Why Trovar</p>
-            <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">
+            <h2 className="text-3xl font-light text-[#FFFFFF] md:text-5xl">
               Every client expense,<br />
               <span className="text-[#8A8D8F]">automated end to end.</span>
             </h2>
@@ -645,7 +645,7 @@ function Features() {
                     </span>
                   )}
                 </div>
-                <h3 className="mb-2 font-medium text-[#F5F5F7]">{f.title}</h3>
+                <h3 className="mb-2 font-medium text-[#FFFFFF]">{f.title}</h3>
                 <p className="text-sm leading-relaxed text-[#8A8D8F]">{f.description}</p>
               </div>
             </FadeIn>
@@ -709,7 +709,7 @@ function Pricing() {
         <FadeIn>
           <div className="mb-16 text-center">
             <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">Pricing</p>
-            <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">
+            <h2 className="text-3xl font-light text-[#FFFFFF] md:text-5xl">
               Simple pricing.<br />
               <span className="text-[#8A8D8F]">Per client account.</span>
             </h2>
@@ -745,7 +745,7 @@ function Pricing() {
                 )}
                 <h3 className="text-sm font-medium text-[#C9CCCE]">{tier.name}</h3>
                 <div className="mt-2 flex items-end gap-1">
-                  <span className="text-4xl font-light text-[#F5F5F7]">{tier.price}</span>
+                  <span className="text-4xl font-light text-[#FFFFFF]">{tier.price}</span>
                   {tier.price !== 'Custom' && <span className="mb-1 text-sm text-[#8A8D8F]">NZD</span>}
                 </div>
                 <p className="mt-1 text-xs text-[#8A8D8F]">{tier.desc}</p>
@@ -768,7 +768,7 @@ function Pricing() {
                     'mt-8 block rounded-xl px-4 py-2.5 text-center text-sm font-medium transition',
                     tier.highlight
                       ? 'bg-[#B6FF3B] text-[#04181C] hover:bg-[#C9FF6B]'
-                      : 'border border-[#2E3032] text-[#E6E6E8] hover:border-[#3A3B3D] hover:bg-[#2A2B2C]'
+                      : 'border border-[#2E3032] text-[#FFFFFF] hover:border-[#3A3B3D] hover:bg-[#2A2B2C]'
                   )}
                 >
                   {tier.cta}
@@ -790,7 +790,7 @@ function VsHubdoc() {
         <FadeIn>
           <div className="rounded-2xl border border-[#2E3032] bg-[#1F2122] p-8 md:p-12">
             <p className="mb-4 text-xs tracking-widest text-[#4A4D4F] uppercase">Why not Hubdoc or Dext?</p>
-            <h2 className="text-2xl font-light text-[#F5F5F7] md:text-4xl">
+            <h2 className="text-2xl font-light text-[#FFFFFF] md:text-4xl">
               &ldquo;Hubdoc did a beautiful job.<br />
               <span className="text-[#8A8D8F]">Then 2FA killed it.&rdquo;</span>
             </h2>
@@ -801,7 +801,7 @@ function VsHubdoc() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-[#2E3032] bg-[#000D0F] p-5">
-                <p className="mb-3 text-sm font-medium text-[#F5F5F7]">Without a system</p>
+                <p className="mb-3 text-sm font-medium text-[#FFFFFF]">Without a system</p>
                 {['IRD audit risk from missing records', 'Hours of manual work every month end', 'Clients who never send receipts', 'Ad accounts at risk from tools logging in as them'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <X className="h-3.5 w-3.5 text-red-500/70" />
@@ -810,7 +810,7 @@ function VsHubdoc() {
                 ))}
               </div>
               <div className="rounded-xl border border-[#22C55E]/20 bg-[#22C55E]/5 p-5">
-                <p className="mb-3 text-sm font-medium text-[#F5F5F7]">With Trovar</p>
+                <p className="mb-3 text-sm font-medium text-[#FFFFFF]">With Trovar</p>
                 {['Every charge matched to a receipt', 'Every record IRD-ready', 'Every month sorted without chasing', 'Client accounts protected'].map((item) => (
                   <div key={item} className="flex items-center gap-2 py-1.5 text-sm text-[#8A8D8F]">
                     <span className="h-3.5 w-3.5 rounded-full bg-[#22C55E]/60 flex-shrink-0" />
@@ -890,7 +890,7 @@ function FAQ() {
         <FadeIn>
           <div className="mb-12 text-center">
             <p className="mb-3 text-xs tracking-widest text-[#4A4D4F] uppercase">FAQ</p>
-            <h2 className="text-3xl font-light text-[#F5F5F7] md:text-5xl">Common questions</h2>
+            <h2 className="text-3xl font-light text-[#FFFFFF] md:text-5xl">Common questions</h2>
           </div>
         </FadeIn>
         <FadeIn delay={0.05}>
@@ -901,7 +901,7 @@ function FAQ() {
                   onClick={() => setOpen(open === i ? null : i)}
                   className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-[#1F2122]/60"
                 >
-                  <span className="font-medium text-[#E6E6E8]">{faq.q}</span>
+                  <span className="font-medium text-[#FFFFFF]">{faq.q}</span>
                   <Plus
                     className={cn('h-4 w-4 shrink-0 text-[#B6FF3B] transition-transform duration-200', open === i && 'rotate-45')}
                   />
@@ -929,7 +929,7 @@ function FoundersNote() {
     <section className="border-t border-[#2E3032] py-20 md:py-28">
       <div className="mx-auto max-w-2xl px-6 text-center">
         <FadeIn>
-          <h2 className="text-2xl font-light leading-snug text-[#F5F5F7] md:text-3xl">
+          <h2 className="text-2xl font-light leading-snug text-[#FFFFFF] md:text-3xl">
             You&apos;re supported by NZ based founders, not a call centre overseas.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[#8A8D8F]">
@@ -951,11 +951,11 @@ function WaitlistCTA() {
       <div className="mx-auto max-w-2xl px-6 text-center">
         <FadeIn>
           <div className="mb-2 flex justify-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F5F7]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FFFFFF]">
               <TrovarMark size={28} dark />
             </div>
           </div>
-          <h2 className="mt-6 text-3xl font-light text-[#F5F5F7] md:text-5xl">
+          <h2 className="mt-6 text-3xl font-light text-[#FFFFFF] md:text-5xl">
             Ready to automate<br />
             <span className="text-[#8A8D8F]">your clients&apos; expense admin?</span>
           </h2>
@@ -971,7 +971,7 @@ function WaitlistCTA() {
             </a>
             <a
               href="mailto:hello@trovar.co.nz"
-              className="rounded-xl border border-[#2E3032] px-6 py-3 text-sm text-[#E6E6E8] transition hover:bg-[#1F2122]"
+              className="rounded-xl border border-[#2E3032] px-6 py-3 text-sm text-[#FFFFFF] transition hover:bg-[#1F2122]"
             >
               Contact us
             </a>
@@ -990,7 +990,7 @@ function Footer() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <a href="/" className="flex items-center gap-2.5">
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#F5F5F7]">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFFFFF]">
                 <TrovarMark size={18} dark />
               </div>
               <TrovarWordmark className="h-5 w-auto" />
