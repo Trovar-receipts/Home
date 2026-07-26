@@ -837,6 +837,10 @@ const faqs = [
     a: 'Trovar is built around your workflow, not a fixed document pipeline. Suppliers that email invoices file themselves automatically, ad platforms are pulled directly via API using your practice\'s own connection, and anything off-platform you can add by hand in seconds. On top of that, every collected invoice is matched against your client\'s bank feed automatically, so you always know what\'s reconciled, not just what\'s been filed.',
   },
   {
+    q: 'How is Trovar different from fileAI?',
+    a: 'fileAI is reactive: a document arrives, gets extracted, then gets checked against transactions already sitting in Xero. If a receipt never turns up, fileAI has nothing to match it against, so it never even knows one is missing. Trovar starts from the other end. The moment a charge fires on your client\'s card, we already know a receipt needs to be found for it, and go get it straight away, from the platform, by email, or from your client directly. If one still doesn\'t show up, you\'re not looking at a pile of unmatched documents, you see the exact transaction that\'s missing a receipt and why, before it ever becomes a month-end scramble.',
+  },
+  {
     q: 'How is Trovar different from Tailride?',
     a: 'Trovar pulls Meta\'s billing charges directly via API, so once your practice is connected you can pull a client\'s charges yourself, whenever suits you, without ever asking them to open or log into anything. It\'s also built specifically for NZ & AU accounting practices: GST and IRD taxable-supply rules are handled correctly by default, pricing is per client so it folds straight into your bookkeeping fee, and the whole workflow is designed to run an entire practice\'s book, including checking every invoice against the client\'s bank feed to prove it\'s reconciled.',
   },
