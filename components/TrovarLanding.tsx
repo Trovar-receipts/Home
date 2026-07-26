@@ -178,7 +178,10 @@ function Header() {
 }
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
+const DEMO_VIDEO_ID = 'll4rxKUA54o'
+
 function Hero() {
+  const [playing, setPlaying] = useState(false)
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-32">
       {/* Background grid */}
@@ -251,17 +254,34 @@ function Hero() {
                 </div>
               </div>
 
-              {/* Video area placeholder (replace with embedded demo video) */}
+              {/* Demo video — thumbnail until clicked, so we're not loading YouTube's JS on every homepage visit */}
               <div className="relative aspect-video w-full bg-gradient-to-br from-[#0B1416] to-[#000D0F]">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                {playing ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${DEMO_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                    title="Trovar product demo"
+                    allow="accelerate-encoded-media; autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                  />
+                ) : (
                   <button
+                    onClick={() => setPlaying(true)}
                     aria-label="Play product demo"
-                    className="flex h-16 w-16 items-center justify-center rounded-full bg-[#B6FF3B] text-[#04181C] shadow-lg transition hover:scale-105"
+                    className="group absolute inset-0 flex flex-col items-center justify-center gap-4"
+                    style={{
+                      backgroundImage: `url(https://i.ytimg.com/vi/${DEMO_VIDEO_ID}/maxresdefault.jpg)`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }}
                   >
-                    <Play className="h-6 w-6 translate-x-0.5" fill="currentColor" />
+                    <div className="absolute inset-0 bg-[#000D0F]/40 transition group-hover:bg-[#000D0F]/25" />
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#B6FF3B] text-[#04181C] shadow-lg transition group-hover:scale-105">
+                      <Play className="h-6 w-6 translate-x-0.5" fill="currentColor" />
+                    </div>
+                    <p className="relative text-sm text-[#FFFFFF]">Watch the 2-minute demo</p>
                   </button>
-                  <p className="text-sm text-[#8A8D8F]">Watch the 2-minute demo</p>
-                </div>
+                )}
               </div>
             </div>
           </div>
